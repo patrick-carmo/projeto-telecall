@@ -67,6 +67,7 @@ img {
   display: grid;
   padding: 20px;
   width: 100%;
+  justify-self: center;
 }
 
 .login-campo form {
@@ -139,13 +140,11 @@ img {
 
 @media (max-width: 550px) {
   .login-container {
-    max-width: 350px;
     padding: 10px;
   }
 
-  .area-login form {
-    justify-self: center;
-    max-width: 300px;
+  .login-campo{
+    justify-items: center;
   }
 
   .login-container img{
@@ -153,7 +152,7 @@ img {
   }
 
   .login-titulo{
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding-bottom: 10px;
   }
 
@@ -163,6 +162,7 @@ img {
   }
 
   .input-container input {
+    width: 200px;
     height: 30px;
     font-size: 1rem;
     padding-top: 15px;
@@ -171,7 +171,7 @@ img {
 
   .input-container input:focus {
     font-size: 1.1rem;
-    height: 5px;
+    height: 16px;
     padding-bottom: 15px;
   }
 }
