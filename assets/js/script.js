@@ -13,6 +13,39 @@ const ocultos = document.querySelectorAll('.input-oculto')
 
 const senha1 = document.querySelector('#senha')
 const senha2 = document.querySelector('#senha2')
+const senhaFeedback = document.querySelector('.invalid-feedback')
+
+senha1.addEventListener('input', () => {
+  validatePassword()
+})
+
+senha2.addEventListener('input', () => {
+  validatePassword()
+})
+
+function validatePassword() {
+  const passwordRegex =
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+
+  if (senha1.value.match(passwordRegex)) {
+    senha1.classList.remove('is-invalid')
+    senha1.classList.add('is-valid')
+    senhaFeedback.style.display = 'none'
+  } else {
+    senha1.classList.remove('is-valid')
+    senha1.classList.add('is-invalid')
+    senhaFeedback.style.display = 'block'
+  }
+
+  if (senha1.value === senha2.value) {
+    senha2.classList.remove('is-invalid')
+    senha2.classList.add('is-valid')
+  } else {
+    senha2.classList.remove('is-valid')
+    senha2.classList.add('is-invalid')
+  }
+}
+
 
 formAnterior.addEventListener('click', () => {
   formCadastro.style.display = 'grid'
@@ -50,7 +83,7 @@ formProximo.addEventListener('click', function () {
     formCadastro.style.display = 'none'
     formEndereco.style.display = 'grid'
     tituloModal.textContent = 'Endereço'
-    botaoSubmit.style.display = 'inline-block'
+    // botaoSubmit.style.display = 'inline-block'
   }
 })
 
@@ -117,7 +150,6 @@ $('#cep').mask('00000-000')
 $('#celular').mask('+55 (00) 00000-0000')
 $('#fixo').mask('+55 (00) 0000-0000')
 $('#cpf').mask('000.000.000-00', { reverse: true })
-// $('#nome').mask('AAAAAAAAA')
 
 const showData = (result) => {
   for (const campo in result) {
@@ -156,6 +188,7 @@ cep.addEventListener('input', (e) => {
               formEndereco.style.gridTemplateColumns = '1fr 1fr'
             })
             cep.classList.add('is-valid')
+            botaoSubmit.style.display = 'inline-block'
           }
         })
       })
