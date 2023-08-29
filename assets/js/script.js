@@ -7,6 +7,7 @@ const formCadastro = document.querySelector('.cadastro')
 const formEndereco = document.querySelector('.form-endereco')
 const camposParteAtual = formCadastro.querySelectorAll('.form-control')
 
+const numero = document.querySelector('#complemento')
 const cep = document.querySelector('#cep')
 const ocultos = document.querySelectorAll('.input-oculto')
 
@@ -116,6 +117,7 @@ $('#cep').mask('00000-000')
 $('#celular').mask('+55 (00) 00000-0000')
 $('#fixo').mask('+55 (00) 0000-0000')
 $('#cpf').mask('000.000.000-00', { reverse: true })
+// $('#nome').mask('AAAAAAAAA')
 
 const showData = (result) => {
   for (const campo in result) {
@@ -127,7 +129,7 @@ const showData = (result) => {
 }
 
 cep.addEventListener('input', (e) => {
-  const search = cep.value.replace('-', '')
+  const search = cep.value.replace('-', '').trim()
   const options = {
     method: 'get',
     mode: 'cors',
@@ -163,5 +165,19 @@ cep.addEventListener('input', (e) => {
       campo.style.display = 'none'
       formEndereco.style.gridTemplateColumns = '1fr'
     })
+  }
+})
+
+formularioPrincipal.addEventListener('submit', (event) => {
+  event.preventDefault()
+
+  const numeroValido = numero.value.trim() !== ''
+
+  if (!cep.classList.contains('is-valid')) {
+    cep.classList.add('is-invalid')
+  } else if (!numero.classList.contains('is-valid') && !numeroValido) {
+    numero.classList.add('is-invalid')
+  } else {
+    formularioPrincipal.submit()
   }
 })

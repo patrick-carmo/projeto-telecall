@@ -41,7 +41,6 @@
                   class="form-control"
                   id="login-entrar"
                   placeholder="Login"
-                  
                 />
                 <label for="Login">Login</label>
               </div>
@@ -51,7 +50,6 @@
                   class="form-control"
                   id="senha-entrar"
                   placeholder="Senha"
-                  
                 />
                 <label for="senha" class="form-label">Senha</label>
               </div>
@@ -100,10 +98,9 @@
                         type="text"
                         class="form-control"
                         id="nome"
-                        placeholder="name@example.com"
-                        
-                        minlength="10"
+                        placeholder="Nome"
                         maxlength="60"
+                        pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,60}$"
                       />
                       <label for="nome">Nome</label>
                       <p class="invalid-feedback">Campo inválido!</p>
@@ -114,7 +111,6 @@
                         class="form-control personalizado"
                         id="nascimento"
                         placeholder="Data de nascimento"
-                        
                         min="1900-01-01"
                         max="2010-01-01"
                       />
@@ -124,7 +120,6 @@
                       class="form-select form-select-sm form-control"
                       aria-label="Small select example"
                       id="sexo"
-                      
                     >
                       <option value="" selected>Sexo</option>
                       <option value="feminino">Masculino</option>
@@ -138,9 +133,8 @@
                         class="form-control"
                         id="nome-materno"
                         placeholder=""
-                        
-                        minlength="10"
                         maxlength="60"
+                        pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,60}$"
                       />
                       <label for="nome-materno">Nome materno</label>
                       <p class="invalid-feedback">Campo inválido!</p>
@@ -152,7 +146,6 @@
                         id="cpf"
                         placeholder=""
                         minlength="14"
-                        
                       />
                       <label for="cpf">CPF</label>
                       <p class="invalid-feedback">Campo inválido!</p>
@@ -163,7 +156,6 @@
                         class="form-control"
                         id="celular"
                         placeholder=""
-                        
                         minlength="19"
                       />
                       <label for="celular">Telefone Celular</label>
@@ -176,7 +168,6 @@
                         id="fixo"
                         placeholder=""
                         minlength="18"
-                        
                       />
                       <label for="fixo">Telefone Fixo</label>
                       <p class="invalid-feedback">Campo inválido!</p>
@@ -189,7 +180,6 @@
                         placeholder=""
                         minlength="5"
                         maxlength="6"
-                        
                       />
                       <label for="login">Login</label>
                       <p class="invalid-feedback">Campo inválido!</p>
@@ -202,7 +192,6 @@
                         placeholder="Senha"
                         minlength="8"
                         maxlength="15"
-                        
                       />
                       <label for="senha">Senha</label>
                       <p class="invalid-feedback">Não idênticas!</p>
@@ -215,7 +204,6 @@
                         placeholder="Senha"
                         minlength="8"
                         maxlength="15"
-                        
                       />
                       <label for="senha2">Confirmar Senha</label>
                       <p class="invalid-feedback">Não idênticas!</p>
@@ -229,7 +217,7 @@
                         class="form-control"
                         id="cep"
                         placeholder="cep"
-                        minlength="8"
+                        minlength="9"
                         required
                       />
                       <label for="cep"
@@ -243,8 +231,7 @@
                         class="form-control"
                         id="uf"
                         placeholder="Estado"
-                        
-                        
+                        disabled
                       />
                       <label for="uf">Estado</label>
                     </div>
@@ -254,8 +241,7 @@
                         class="form-control"
                         id="bairro"
                         placeholder="Bairro"
-                        
-                        
+                        disabled
                       />
                       <label for="bairro">Bairro</label>
                     </div>
@@ -265,8 +251,7 @@
                         class="form-control"
                         id="localidade"
                         placeholder="Cidade"
-                        
-                        
+                        disabled
                       />
                       <label for="localidade">Cidade</label>
                     </div>
@@ -276,7 +261,6 @@
                         class="form-control"
                         id="logradouro"
                         placeholder="Logradouro"
-                        
                         disabled
                       />
                       <label for="logradouro">Logradouro</label>
@@ -287,7 +271,9 @@
                         class="form-control"
                         id="complemento"
                         placeholder="Complemento"
-                        
+                        pattern="^[a-zA-Z0-9À-ÿ\s]{0,20}$"
+                        maxlength="20"
+                        required
                       />
                       <label for="complemento"
                         >Numero <span class="obrigatorio">*</span></label
@@ -299,28 +285,25 @@
                         class="form-control"
                         id="complementoAdicional"
                         placeholder="Complemento"
-                        
                       />
-                      <label for="complementoAdicional"
-                        >Complemento <span class="obrigatorio">*</span></label
-                      >
+                      <label for="complementoAdicional">Complemento</label>
                     </div>
                   </div>
-                <div class="botao-formulario">
-                  <button
-                    type="submit"
-                    class="btn btn-primary estilo-botao"
-                    id="enviar-cadastro"
-                  >
-                    Cadastrar
-                  </button>
+                  <div class="botao-formulario">
+                    <button
+                      type="submit"
+                      class="btn btn-primary estilo-botao"
+                      id="enviar-cadastro"
+                    >
+                      Cadastrar
+                    </button>
 
-                  <button
-                    type="reset"
-                    class="btn btn-secondary estilo-botao botao-limpar"
-                  >
-                    Limpar
-                  </button>
+                    <button
+                      type="reset"
+                      class="btn btn-secondary estilo-botao botao-limpar"
+                    >
+                      Limpar
+                    </button>
                   </div>
                 </form>
               </div>
@@ -354,11 +337,11 @@
       </section>
     </main>
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 
