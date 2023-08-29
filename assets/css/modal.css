@@ -1,0 +1,25 @@
+.cadastro{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.cadastro button{
+  justify-self: center;
+}
+
+.modal-input{
+  grid-column: 1/-1;
+}
+
+.form-floating>.form-control-plaintext~label::after, .form-floating>.form-control:focus~label::after, .form-floating>.form-control:not(:placeholder-shown)~label::after, .form-floating>.form-select~label::after{
+  background-color: transparent;
+}
+
+@media(max-width: 400px){
+  .cadastro{
+    grid-template-columns: 1fr;
+  }
+}
