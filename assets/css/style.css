@@ -96,12 +96,27 @@ img {
   background-color: #660000;
 }
 
+.estilo-botao{
+  border-radius: 10px;
+}
+
+.botao-limpar:hover{
+  background-color: rgb(126, 126, 126);
+}
+
 .botao-cadastro {
   place-self: center center;
   padding: 5px;
   color: #1877f2;
   border: none;
   background-color: transparent
+}
+
+.botao-formulario{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 @media (max-width: 550px) {

@@ -4,14 +4,49 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  padding: 10px 0px;
+}
+
+
+.form-endereco{
+  display: none;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px;
+  gap: 10px;
 }
 
 .cadastro button{
   justify-self: center;
 }
 
+#enviar-cadastro{
+  display: block;
+}
+
 .modal-input{
   grid-column: 1/-1;
+}
+
+.modal-footer{
+  justify-content: space-between;
+}
+
+.obrigatorio{
+  color: #ca1c2a;
+}
+
+.botao-fechar{
+  background-color: #ca1c2a;
+}
+
+#enviar-cadastro{
+  display: none;
+}
+
+.input-oculto{
+  display: none;
 }
 
 .form-floating>.form-control-plaintext~label::after, .form-floating>.form-control:focus~label::after, .form-floating>.form-control:not(:placeholder-shown)~label::after, .form-floating>.form-select~label::after{
@@ -19,7 +54,7 @@
 }
 
 @media(max-width: 400px){
-  .cadastro{
+  .cadastro, .form-endereco{
     grid-template-columns: 1fr;
   }
 }
