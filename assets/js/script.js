@@ -32,7 +32,11 @@ formProximo.addEventListener('click', function () {
     }
   })
 
-  if (senha1.value !== senha2.value) {
+  if (
+    senha1.value === '' ||
+    senha2.value === '' ||
+    senha1.value !== senha2.value
+  ) {
     camposValidos = false
     senha1.classList.add('is-invalid')
     senha2.classList.add('is-invalid')
@@ -48,6 +52,8 @@ formProximo.addEventListener('click', function () {
     botaoSubmit.style.display = 'inline-block'
   }
 })
+
+
 
 camposParteAtual.forEach((campo) => {
   campo.addEventListener('input', () => {
@@ -71,6 +77,9 @@ limpar.addEventListener('click', function () {
   senha1.classList.remove('is-invalid')
   senha2.classList.remove('is-invalid')
 
+  cep.classList.remove('is-invalid', 'is-valid')
+  cep.value = ''
+
   formEndereco.style.display = 'none'
   formCadastro.style.display = 'grid'
   botaoSubmit.style.display = 'none'
@@ -79,8 +88,9 @@ limpar.addEventListener('click', function () {
 
   formEndereco.style.gridTemplateColumns = '1fr'
 
-  ocultos.forEach(campos=>campos.style.display = 'none')
+  ocultos.forEach((campos) => (campos.style.display = 'none'))
 })
+
 ;(() => {
   'use strict'
 
@@ -124,16 +134,34 @@ cep.addEventListener('input', (e) => {
     cache: 'default',
   }
 
-  if (search.length === 8) {
-    ocultos.forEach((campo) => {
-      campo.style.display = 'inline-block'
-      formEndereco.style.gridTemplateColumns = '1fr 1fr'
-    })
+  cep.classList.remove('is-invalid')
+  cep.classList.remove('is-valid')
 
+  if (search.length === 8) {
     fetch(`https://viacep.com.br/ws/${search}/json/`, options)
       .then((response) => {
-        response.json().then((data) => showData(data))
+        response.json().then((data) => {
+          if (data.erro) {
+            cep.classList.add('is-invalid')
+            ocultos.forEach((campo) => {
+              campo.style.display = 'none'
+              formEndereco.style.gridTemplateColumns = '1fr'
+            })
+          } else {
+            showData(data)
+            ocultos.forEach((campo) => {
+              campo.style.display = 'inline-block'
+              formEndereco.style.gridTemplateColumns = '1fr 1fr'
+            })
+            cep.classList.add('is-valid')
+          }
+        })
       })
-      .catch((e) => console.log('Erro: ' + e, messege))
+      .catch((e) => console.log(`Erro: ${e}`, messege))
+  } else {
+    ocultos.forEach((campo) => {
+      campo.style.display = 'none'
+      formEndereco.style.gridTemplateColumns = '1fr'
+    })
   }
 })

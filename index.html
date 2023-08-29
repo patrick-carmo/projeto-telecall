@@ -41,8 +41,7 @@
                   class="form-control"
                   id="login-entrar"
                   placeholder="Login"
-                  required
-                  minlength="5"
+                  
                 />
                 <label for="Login">Login</label>
               </div>
@@ -52,7 +51,7 @@
                   class="form-control"
                   id="senha-entrar"
                   placeholder="Senha"
-                  required
+                  
                 />
                 <label for="senha" class="form-label">Senha</label>
               </div>
@@ -102,8 +101,8 @@
                         class="form-control"
                         id="nome"
                         placeholder="name@example.com"
-                        required
-                        minlength="15"
+                        
+                        minlength="10"
                         maxlength="60"
                       />
                       <label for="nome">Nome</label>
@@ -125,7 +124,7 @@
                       class="form-select form-select-sm form-control"
                       aria-label="Small select example"
                       id="sexo"
-                      required
+                      
                     >
                       <option value="" selected>Sexo</option>
                       <option value="feminino">Masculino</option>
@@ -140,6 +139,8 @@
                         id="nome-materno"
                         placeholder=""
                         
+                        minlength="10"
+                        maxlength="60"
                       />
                       <label for="nome-materno">Nome materno</label>
                       <p class="invalid-feedback">Campo inválido!</p>
@@ -151,7 +152,7 @@
                         id="cpf"
                         placeholder=""
                         minlength="14"
-                        required
+                        
                       />
                       <label for="cpf">CPF</label>
                       <p class="invalid-feedback">Campo inválido!</p>
@@ -162,7 +163,7 @@
                         class="form-control"
                         id="celular"
                         placeholder=""
-                        required
+                        
                         minlength="19"
                       />
                       <label for="celular">Telefone Celular</label>
@@ -175,7 +176,7 @@
                         id="fixo"
                         placeholder=""
                         minlength="18"
-                        required
+                        
                       />
                       <label for="fixo">Telefone Fixo</label>
                       <p class="invalid-feedback">Campo inválido!</p>
@@ -186,9 +187,9 @@
                         class="form-control"
                         id="login"
                         placeholder=""
-                        minlength="6"
+                        minlength="5"
                         maxlength="6"
-                        required
+                        
                       />
                       <label for="login">Login</label>
                       <p class="invalid-feedback">Campo inválido!</p>
@@ -201,7 +202,7 @@
                         placeholder="Senha"
                         minlength="8"
                         maxlength="15"
-                        required
+                        
                       />
                       <label for="senha">Senha</label>
                       <p class="invalid-feedback">Não idênticas!</p>
@@ -214,7 +215,7 @@
                         placeholder="Senha"
                         minlength="8"
                         maxlength="15"
-                        required
+                        
                       />
                       <label for="senha2">Confirmar Senha</label>
                       <p class="invalid-feedback">Não idênticas!</p>
@@ -228,6 +229,7 @@
                         class="form-control"
                         id="cep"
                         placeholder="cep"
+                        minlength="8"
                         required
                       />
                       <label for="cep"
@@ -241,8 +243,8 @@
                         class="form-control"
                         id="uf"
                         placeholder="Estado"
-                        required
-                        disabled
+                        
+                        
                       />
                       <label for="uf">Estado</label>
                     </div>
@@ -252,8 +254,8 @@
                         class="form-control"
                         id="bairro"
                         placeholder="Bairro"
-                        required
-                        disabled
+                        
+                        
                       />
                       <label for="bairro">Bairro</label>
                     </div>
@@ -263,8 +265,8 @@
                         class="form-control"
                         id="localidade"
                         placeholder="Cidade"
-                        required
-                        disabled
+                        
+                        
                       />
                       <label for="localidade">Cidade</label>
                     </div>
@@ -274,7 +276,7 @@
                         class="form-control"
                         id="logradouro"
                         placeholder="Logradouro"
-                        required
+                        
                         disabled
                       />
                       <label for="logradouro">Logradouro</label>
@@ -283,11 +285,11 @@
                       <input
                         type="text"
                         class="form-control"
-                        id="numero"
-                        placeholder="Numero"
-                        required
+                        id="complemento"
+                        placeholder="Complemento"
+                        
                       />
-                      <label for="numero"
+                      <label for="complemento"
                         >Numero <span class="obrigatorio">*</span></label
                       >
                     </div>
@@ -295,11 +297,11 @@
                       <input
                         type="text"
                         class="form-control"
-                        id="complemento"
+                        id="complementoAdicional"
                         placeholder="Complemento"
-                        required
+                        
                       />
-                      <label for="complemento"
+                      <label for="complementoAdicional"
                         >Complemento <span class="obrigatorio">*</span></label
                       >
                     </div>
