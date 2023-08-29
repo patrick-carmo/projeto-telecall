@@ -46,7 +46,6 @@ function validatePassword() {
   }
 }
 
-
 formAnterior.addEventListener('click', () => {
   formCadastro.style.display = 'grid'
   formEndereco.style.display = 'none'
@@ -87,8 +86,6 @@ formProximo.addEventListener('click', function () {
   }
 })
 
-
-
 camposParteAtual.forEach((campo) => {
   campo.addEventListener('input', () => {
     if (!campo.checkValidity()) {
@@ -124,7 +121,6 @@ limpar.addEventListener('click', function () {
 
   ocultos.forEach((campos) => (campos.style.display = 'none'))
 })
-
 ;(() => {
   'use strict'
 
@@ -197,6 +193,7 @@ cep.addEventListener('input', (e) => {
     ocultos.forEach((campo) => {
       campo.style.display = 'none'
       formEndereco.style.gridTemplateColumns = '1fr'
+      botaoSubmit.style.display = 'none'
     })
   }
 })
