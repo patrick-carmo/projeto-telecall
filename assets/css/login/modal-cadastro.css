@@ -49,6 +49,14 @@
   display: none;
 }
 
+.form-proximo, .form-anterior{
+  background-color: #0170B9;
+}
+
+.form-proximo:hover, .form-anterior:hover{
+  background-color: #00538a;
+}
+
 .form-floating>.form-control-plaintext~label::after, .form-floating>.form-control:focus~label::after, .form-floating>.form-control:not(:placeholder-shown)~label::after, .form-floating>.form-select~label::after{
   background-color: transparent;
 }
