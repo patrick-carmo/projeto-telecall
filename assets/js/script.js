@@ -1,3 +1,5 @@
+import ('./dark.js')
+
 const formProximo = document.querySelector('.form-proximo')
 const formAnterior = document.querySelector('.form-anterior')
 const botaoSubmit = document.querySelector('#enviar-cadastro')

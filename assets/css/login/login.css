@@ -3,6 +3,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: var(--cor-bg);
 }
 
 .login-principal {
@@ -30,11 +31,23 @@ body {
   align-items: center;
 }
 
-.login-titulo {
-  font-size: 2.5rem;
+
+.login-titulo{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   padding-bottom: 30px;
+}
+
+.login-titulo h1{
+  font-size: 2.5rem;
   text-align: center;
-  color: #660000;
+  color: var(--cor-titulo);
+}
+
+.modo-escuro{
+  display: flex;
+  flex-direction: column;
 }
 
 .login-campo {
@@ -51,8 +64,8 @@ body {
 }
 
 .form-control:focus {
-      border-color: #666;
-      box-shadow: 0 0 0 0.2rem rgba(51, 51, 51, 0.3);
+  border-color: var(--cor-borda-input-focus);
+  box-shadow: var(--cor-box-input-focus);
 }
 
 .login-campo button {
@@ -60,13 +73,13 @@ body {
   border-radius: 10px;
   height: 40px;
   cursor: pointer;
-  background-color: #ca1c2a;
+  background-color: var(--cor-p2);
   color: white;
   transition: ease 0.3s;
 }
 
 .login-campo button:hover {
-  background-color: #660000;
+  background-color: var(--cor-s2);
 }
 
 .estilo-botao{
@@ -80,7 +93,7 @@ body {
 .botao-cadastro {
   place-self: center center;
   padding: 5px;
-  color: #1877f2;
+  color: var(--cor-p1);
   border: none;
   background-color: transparent
 }

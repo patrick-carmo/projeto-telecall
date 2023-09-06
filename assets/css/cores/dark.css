@@ -1,0 +1,80 @@
+.dark-mode{
+  --cor-bg: #171717;
+  --cor-input-bg: #333;
+  --cor-modal-bg: #222;
+
+  --cor-texto: #fff;
+  --cor-titulo: #ca1c2a;
+
+  --cor-borda-input: rgb(121, 121, 121);
+
+  --cor-label-focus: rgba(255, 255, 255, 0.452);
+  --cor-borda-input-focus: #595cf7a4;
+  --cor-box-input-focus: 0 0 0 0.2rem rgba(20, 57, 136, 0.493);
+
+  color: var(--cor-texto);
+  transition: 0.5s ease;
+}
+
+.dark-mode input{
+  background-color: transparent;
+  border-color: var(--cor-borda-input);
+  color: var(--cor-texto);
+}
+
+.dark-mode input:focus{
+  color: var(--cor-texto);
+  background-color: var(--cor-input-bg);
+}
+
+.dark-mode .form-select{
+  color: var(--cor-texto);
+  border-color: var(--cor-borda-input);
+  background-color: transparent;
+}
+
+.dark-mode .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='white' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.dark-mode .form-floating>.form-control-plaintext~label, .form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label{
+  color: rgba(255, 255, 255, 0.452);
+}
+
+.dark-mode .form-select:focus{
+  color: var(--cor-texto);
+  background-color: var(--cor-bg);
+}
+
+.dark-mode .modal-content{
+  background-color: var(--cor-modal-bg);
+}
+
+.dark-mode .form-floating>.form-control-plaintext:-webkit-autofill, .form-floating>.form-control:-webkit-autofill{
+  color: var(--cor-texto);
+  background-color: #262626;
+}
+
+.dark-mode input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgb(48, 48, 48) inset;
+    color: var(--cor-texto);
+}
+
+.dark-mode input:-webkit-autofill:focus{
+  -webkit-box-shadow: 0 0 0 30px rgb(48, 48, 48) inset;
+}
+
+.dark-mode input:-webkit-autofill,
+.dark-mode input:-webkit-autofill:hover, 
+.dark-mode input:-webkit-autofill:focus,
+.dark-mode textarea:-webkit-autofill,
+.dark-mode textarea:-webkit-autofill:hover
+.dark-mode textarea:-webkit-autofill:focus,
+.dark-mode select:-webkit-autofill,
+.dark-mode select:-webkit-autofill:hover,
+.dark-mode select:-webkit-autofill:focus {
+  /* border: 1px solid white; */
+  -webkit-text-fill-color: var(--cor-texto);
+  /* -webkit-box-shadow: var(--cor-box-input); */
+  /* transition: background-color 5000s ease-in-out 0.1s; */
+}

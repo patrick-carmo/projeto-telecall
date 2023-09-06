@@ -20,11 +20,9 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-
-    <link rel="stylesheet" href="./assets/css/login/login.css" />
-    <link rel="stylesheet" href="./assets/css/login/modal-cadastro.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
+
   <body>
     <main class="login-principal">
       <section class="area-login">
@@ -33,7 +31,13 @@
             ><img src="./assets/img/telecall-logo.svg" alt="Telecall Logo"
           /></a>
           <div class="login-campo">
-            <h1 class="login-titulo">Login</h1>
+            <div class="login-titulo">
+              <h1>Login</h1>
+              <div class="modo-escuro">
+                <label for="dark">Modo Escuro</label>
+                <input type="checkbox" name="dark" id="dark" />
+              </div>
+            </div>
             <form action="" class="needs-validation" novalidate>
               <div class="form-floating">
                 <input
@@ -42,7 +46,7 @@
                   id="login-entrar"
                   placeholder="Login"
                 />
-                <label for="Login">Login</label>
+                <label for="Login" class="form-label">Login</label>
               </div>
               <div class="form-floating">
                 <input

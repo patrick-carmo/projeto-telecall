@@ -34,11 +34,11 @@
 }
 
 .obrigatorio{
-  color: #ca1c2a;
+  color: var(--cor-p2);
 }
 
 .botao-fechar{
-  background-color: #ca1c2a;
+  background-color: var(--cor-p2);
 }
 
 #enviar-cadastro{
@@ -50,11 +50,15 @@
 }
 
 .form-proximo, .form-anterior{
-  background-color: #0170B9;
+  background-color: var(--cor-p1);
 }
 
 .form-proximo:hover, .form-anterior:hover{
-  background-color: #00538a;
+  background-color: var(--cor-p1-hover);
+}
+
+.form-floating>label{
+  background-color: transparent;
 }
 
 .form-floating>.form-control-plaintext~label::after, .form-floating>.form-control:focus~label::after, .form-floating>.form-control:not(:placeholder-shown)~label::after, .form-floating>.form-select~label::after{

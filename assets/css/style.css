@@ -1,32 +1,7 @@
-* {
-  font-family: 'Poppins', sans-serif;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0px;
-  padding: 0px;
-}
-
-ul, li{
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
-}
+@import url(./global.css);
+@import url(./cores/cores.css);
+@import url(./cores/dark.css);
 
 
-a{
-  text-decoration: none;
-  max-width: 100%;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
+@import url(./login/login.css);
+@import url(./login/modal-cadastro.css);
