@@ -6,8 +6,6 @@
   --cor-borda-input-focus: #2a2b7473;
   --cor-box-input-focus: 0 0 0 0.2rem rgba(0, 37, 116, 0.3);
 
-  --logo: url('../assets/img/telecall-logo.svg')
-
   --cor-p1: #0170B9;
   --cor-s1: #00538a;
 
@@ -15,8 +13,4 @@
   --cor-p2: #ca1c2a;
   --cor-s2: #660000;
   --cor-botao-p: #1877f2;
-}
-
-.logo a{
-  background-image: --logo;
 }
