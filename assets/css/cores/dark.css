@@ -38,7 +38,7 @@
 }
 
 .dark-mode .form-floating>.form-control-plaintext~label, .form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label{
-  color: rgba(255, 255, 255, 0.452);
+  color: var(--cor-label)
 }
 
 .dark-mode .form-select:focus{

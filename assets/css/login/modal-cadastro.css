@@ -65,6 +65,10 @@
   background-color: transparent;
 }
 
+.form-floating>.form-control-plaintext~label, .form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label{
+  color: var(--cor-label);
+}
+
 @media(max-width: 400px){
   .cadastro, .form-endereco{
     grid-template-columns: 1fr;
