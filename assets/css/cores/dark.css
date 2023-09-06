@@ -3,6 +3,8 @@
   --cor-input-bg: #333;
   --cor-modal-bg: #222;
 
+  --cor-form-disabled: rgb(114, 114, 114);
+
   --cor-texto: #fff;
   --cor-titulo: #ca1c2a;
 
@@ -14,6 +16,11 @@
 
   color: var(--cor-texto);
   transition: 0.5s ease;
+}
+
+.dark-mode .form-control:disabled{
+  color: var(--cor-texto);
+  background-color: var(--cor-form-disabled);
 }
 
 .dark-mode input{
@@ -75,6 +82,6 @@
 .dark-mode select:-webkit-autofill:focus {
   /* border: 1px solid white; */
   -webkit-text-fill-color: var(--cor-texto);
-  /* -webkit-box-shadow: var(--cor-box-input); */
-  /* transition: background-color 5000s ease-in-out 0.1s; */
+  -webkit-box-shadow: var(--cor-box-input);
+  transition: background-color 5000s ease-in-out 0.1s;
 }
