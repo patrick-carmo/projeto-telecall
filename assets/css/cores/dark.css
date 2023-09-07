@@ -3,6 +3,7 @@
   --cor-input-bg: #333;
   --cor-modal-bg: #222;
 
+  /* --bs-secondary-bg: rgb(114, 114, 114); */
   --cor-form-disabled: rgb(114, 114, 114);
 
   --cor-texto: #fff;
@@ -18,12 +19,33 @@
   --cor-box-input-focus: 0 0 0 0.2rem rgba(20, 57, 136, 0.493);
 
   color: var(--cor-texto);
-  transition: 0.5s ease;
+  transition: 0.2s ease;
 }
 
-.dark-mode .form-control:disabled{
+.form-control:disabled{
   color: var(--cor-texto);
   background-color: var(--cor-form-disabled);
+}
+
+#dark{
+  display: none;
+}
+
+.bi{
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.bi-moon{
+  display: none;
+}
+
+.dark-mode .bi-sun{
+  display: none;
+}
+
+.dark-mode .bi-moon{
+  display: block;
 }
 
 .dark-mode input{

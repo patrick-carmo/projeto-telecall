@@ -85,6 +85,8 @@ camposParteAtual.forEach((campo) => {
 //botões de voltar e avançar
 
 formAnterior.addEventListener('click', function () {
+  formAnterior.disabled = true
+  formProximo.disabled = false
   formCadastro.style.display = 'grid'
   formEndereco.style.display = 'none'
   tituloModal.textContent = 'Cadastro de login'
@@ -95,6 +97,8 @@ formProximo.addEventListener('click', function () {
 
   function verificarCampos() {
     if (camposValidos) {
+      formAnterior.disabled = false
+      formProximo.disabled = true
       formCadastro.style.display = 'none'
       formEndereco.style.display = 'grid'
       tituloModal.textContent = 'Endereço'
@@ -163,6 +167,9 @@ limpar.addEventListener('click', function () {
   botaoSubmit.style.display = 'none'
 
   formularioPrincipal.classList.remove('was-validated')
+
+  formAnterior.disabled = true
+  formProximo.disabled = false
 
   formEndereco.style.gridTemplateColumns = '1fr'
 
