@@ -1,0 +1,26 @@
+#dark {
+  display: none;
+}
+
+.bi{
+  cursor: pointer;
+  transform: scale(1.3);
+}
+
+.bi-sun{
+  display: none;
+  color: var(--cor-p2);
+}
+
+.bi-moon{
+  display: block;
+  color: var(--cor-p1);
+}
+
+.dark-mode .bi-sun{
+  display: block;
+}
+
+.dark-mode .bi-moon{
+  display: none;
+}

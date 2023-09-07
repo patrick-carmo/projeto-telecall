@@ -1,6 +1,7 @@
 @import url(./global.css);
 @import url(./cores/cores.css);
 @import url(./cores/dark.css);
+@import url(./cores/botao-dark.css);
 
 
 @import url(./login/login.css);
