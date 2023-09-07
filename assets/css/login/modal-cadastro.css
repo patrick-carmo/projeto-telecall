@@ -7,6 +7,15 @@
   padding: 10px 0px;
 }
 
+.feedback-senha{
+  color: var(--cor-erro);
+  display: none;
+}
+
+.feedback-senha2{
+  color: var(--cor-erro);
+  display: none;
+}
 
 .form-endereco{
   display: none;
@@ -41,6 +50,14 @@
   background-color: var(--cor-p2);
 }
 
+.botao-fechar:hover{
+  background-color: var(--cor-s2);
+}
+
+.botao-limpar:hover{
+  background-color: var(--cor-botao-s2);
+}
+
 #enviar-cadastro{
   display: none;
 }
@@ -54,7 +71,7 @@
 }
 
 .form-proximo:hover, .form-anterior:hover{
-  background-color: var(--cor-p1-hover);
+  background-color: var(--cor-s1);
 }
 
 .form-floating>label{

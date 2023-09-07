@@ -200,7 +200,8 @@
                         required
                       />
                       <label for="senha">Senha</label>
-                      <p class="invalid-feedback">Não idênticas!</p>
+                      <p class="feedback-senha2">Obrigatório: Letra maiúscula e caracter especial!</p>
+                      <p class="feedback-senha">Senhas não idênticas</p>
                     </div>
                     <div class="form-floating">
                       <input
@@ -214,7 +215,8 @@
                         required
                       />
                       <label for="senha2">Confirmar Senha</label>
-                      <p class="invalid-feedback">Não idênticas!</p>
+                      <p class="feedback-senha2">Obrigatório: Letra maiúscula e caracter especial!</p>
+                      <p class="feedback-senha">Senhas não idênticas</p>
                     </div>
                   </div>
 
@@ -280,8 +282,7 @@
                         id="complemento"
                         placeholder="Complemento"
                         maxlength="20"
-                        pattern="^(?![.,\s])[\wÀ-ÿ.,\s]{0,}$"
-                        maxlength="20"
+                        pattern="^(?![.,\s])[\wÀ-ÿ.,\s]*$"
                         required
                       />
                       <label for="complemento"

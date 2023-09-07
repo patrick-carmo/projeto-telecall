@@ -3,17 +3,21 @@
   --cor-input-bg: initial;
   --cor-modal-bg: #fff;
   --cor-texto: #000;
+  --cor-erro: #dc3545;
 
   --cor-label: rgb(160, 160, 160);
 
   --cor-borda-input-focus: #2a2b7473;
   --cor-box-input-focus: 0 0 0 0.2rem rgba(0, 37, 116, 0.3);
 
+  --cor-botao-s2: rgb(100, 100, 100);
+
   --cor-p1: #0170B9;
   --cor-s1: #00538a;
 
   --cor-titulo: #660000;
   --cor-p2: #ca1c2a;
+
   --cor-s2: #660000;
   --cor-botao-p: #1877f2;
 }
