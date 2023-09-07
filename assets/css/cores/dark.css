@@ -7,11 +7,14 @@
 
   --cor-texto: #fff;
   --cor-titulo: #ca1c2a;
+  --cor-p1: #0078D4;
 
   --cor-borda-input: rgb(121, 121, 121);
 
   --cor-label-focus: rgba(255, 255, 255, 0.452);
   --cor-borda-input-focus: #595cf7a4;
+
+  /* --cor-box-input: 0 0 0 0.2rem rgba(0, 0, 0, 0.493); */
   --cor-box-input-focus: 0 0 0 0.2rem rgba(20, 57, 136, 0.493);
 
   color: var(--cor-texto);
@@ -82,6 +85,6 @@
 .dark-mode select:-webkit-autofill:focus {
   /* border: 1px solid white; */
   -webkit-text-fill-color: var(--cor-texto);
-  -webkit-box-shadow: var(--cor-box-input);
+  /* -webkit-box-shadow: var(--cor-box-input); */
   transition: background-color 5000s ease-in-out 0.1s;
 }

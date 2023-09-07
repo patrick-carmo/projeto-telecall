@@ -6,6 +6,10 @@ body {
   background-color: var(--cor-bg);
 }
 
+#logo-dark{
+  display: none;
+}
+
 .login-principal {
   display: flex;
   height: 100vh;

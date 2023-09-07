@@ -1,4 +1,4 @@
-import ('./dark.js')
+import('./dark.js')
 
 //Botões
 const formProximo = document.querySelector('.form-proximo')
@@ -13,6 +13,7 @@ const formEndereco = document.querySelector('.form-endereco')
 
 //Inputs
 const camposParteAtual = formCadastro.querySelectorAll('.form-control')
+
 const numero = document.querySelector('#complemento')
 const cep = document.querySelector('#cep')
 const ocultos = document.querySelectorAll('.input-oculto')
@@ -23,17 +24,17 @@ const senha2 = document.querySelector('#senha2')
 const senhaFeedback = document.querySelectorAll('.feedback-senha')
 const senhaFeedback2 = document.querySelectorAll('.feedback-senha2')
 
-
 //Validar input da senha
 
 function validarSenha(campo) {
-  const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+  const regex =
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
   //Controlador para que o input das senhas seja alterado somente quando algum valor for preenchido
   const idSenhas = ['senha', 'senha2']
   const campoId = campo.getAttribute('id')
 
-  if(idSenhas.includes(campoId)){
+  if (idSenhas.includes(campoId)) {
     const senhaFeedback2campo =
       campo.parentNode.querySelectorAll('.feedback-senha2')
 
@@ -76,14 +77,14 @@ camposParteAtual.forEach((campo) => {
       campo.classList.remove('is-invalid')
       campo.classList.add('is-valid')
     }
-    
+
     validarSenha(campo)
   })
 })
 
 //botões de voltar e avançar
 
-formAnterior.addEventListener('click', function() {
+formAnterior.addEventListener('click', function () {
   formCadastro.style.display = 'grid'
   formEndereco.style.display = 'none'
   tituloModal.textContent = 'Cadastro de login'
@@ -111,16 +112,12 @@ formProximo.addEventListener('click', function () {
     }
   })
 
-  if (
-    senha1.value === '' ||
-    senha2.value === ''
-  ) {
+  if (senha1.value === '' || senha2.value === '') {
     camposValidos = false
     senha1.classList.add('is-invalid')
     senha2.classList.add('is-invalid')
-    
 
-    senhaFeedback2.forEach(campo => {
+    senhaFeedback2.forEach((campo) => {
       campo.style.display = 'block'
     })
 
@@ -130,7 +127,7 @@ formProximo.addEventListener('click', function () {
     senha2.classList.remove('is-invalid')
   }
 
-  if(senha1.value !== senha2.value){
+  if (senha1.value !== senha2.value) {
     camposValidos = false
     senha1.classList.add('is-invalid')
     senha2.classList.add('is-invalid')
@@ -141,8 +138,6 @@ formProximo.addEventListener('click', function () {
   }
   verificarCampos()
 })
-
-
 
 //botão de limpar todos os campos dos inputs
 
@@ -157,8 +152,8 @@ limpar.addEventListener('click', function () {
   senha2.classList.remove('is-invalid')
   senha1.classList.remove('is-valid')
   senha2.classList.remove('is-valid')
-  senhaFeedback.forEach(campo=>campo.style.display = 'none')
-  senhaFeedback2.forEach(campo=>campo.style.display = 'none')
+  senhaFeedback.forEach((campo) => (campo.style.display = 'none'))
+  senhaFeedback2.forEach((campo) => (campo.style.display = 'none'))
 
   cep.classList.remove('is-invalid', 'is-valid')
   cep.value = ''
@@ -174,9 +169,7 @@ limpar.addEventListener('click', function () {
   ocultos.forEach((campos) => (campos.style.display = 'none'))
 })
 
-
 //Bootstrap 5
-
 ;(() => {
   'use strict'
 
@@ -223,44 +216,44 @@ cep.addEventListener('input', (e) => {
     cache: 'default',
   }
 
-cep.classList.remove('is-invalid')
+  cep.classList.remove('is-invalid')
 
-if (search.length >= 8) {
-  fetch(`https://viacep.com.br/ws/${search}/json/`, options)
-    .then((response) => {
-      response.json().then((data) => {
-        if (data.erro) {
-          cep.classList.remove('is-valid') // Remova a classe aqui, se o CEP for inválido
-          cep.classList.add('is-invalid') // Adicione a classe is-invalid para indicar erro
-          ocultos.forEach((campo) => {
-            campo.style.display = 'none'
-            formEndereco.style.gridTemplateColumns = '1fr'
-          })
-        } else {
-          showData(data)
-          ocultos.forEach((campo) => {
-            campo.style.display = 'inline-block'
-            formEndereco.style.gridTemplateColumns = '1fr 1fr'
-          })
-          cep.classList.remove('is-invalid') // Remova a classe is-invalid aqui
-          cep.classList.add('is-valid') // Adicione a classe is-valid apenas quando o CEP for válido
-          botaoSubmit.style.display = 'inline-block'
-        }
+  if (search.length >= 8) {
+    fetch(`https://viacep.com.br/ws/${search}/json/`, options)
+      .then((response) => {
+        response.json().then((data) => {
+          if (data.erro) {
+            cep.classList.remove('is-valid')
+            cep.classList.add('is-invalid')
+            ocultos.forEach((campo) => {
+              campo.style.display = 'none'
+              formEndereco.style.gridTemplateColumns = '1fr'
+            })
+          } else {
+            showData(data)
+            ocultos.forEach((campo) => {
+              campo.style.display = 'inline-block'
+              formEndereco.style.gridTemplateColumns = '1fr 1fr'
+            })
+            cep.classList.remove('is-invalid')
+            cep.classList.add('is-valid')
+            botaoSubmit.style.display = 'inline-block'
+          }
+        })
       })
+      .catch((e) => console.log(`Erro: ${e}`, messege))
+  } else {
+    ocultos.forEach((campo) => {
+      campo.style.display = 'none'
+      formEndereco.style.gridTemplateColumns = '1fr'
+      botaoSubmit.style.display = 'none'
     })
-    .catch((e) => console.log(`Erro: ${e}`, messege))
-} else {
-  ocultos.forEach((campo) => {
-    campo.style.display = 'none'
-    formEndereco.style.gridTemplateColumns = '1fr'
-    botaoSubmit.style.display = 'none'
-  })
-}
+  }
 })
 
 //Função de controle do submit
 
-formularioPrincipal.addEventListener('submit', function(event){
+formularioPrincipal.addEventListener('submit', function (event) {
   event.preventDefault()
   let temErro = false
 
@@ -281,7 +274,7 @@ formularioPrincipal.addEventListener('submit', function(event){
       temErro = true
     }
   })
-  if(!temErro){
+  if (!temErro) {
     formularioPrincipal.submit()
   }
 })
