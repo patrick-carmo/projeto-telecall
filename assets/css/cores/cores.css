@@ -1,9 +1,13 @@
 :root{
   --cor-bg: #fff; 
   --cor-bg-s: #171717;
+
   --cor-input-bg: initial;
   --cor-modal-bg: #fff;
-  --cor-texto: #000;
+  --cor-texto-p: #000;
+  --cor-texto-s: #fff;
+  --cor-texto-menu: #fff;
+  --cor-texto-drop: #fff;
   --cor-erro: #dc3545;
 
   --cor-label: rgb(160, 160, 160);
@@ -11,6 +15,7 @@
   --cor-form-disabled: #e9ecef;
 
   --cor-borda-input-focus: #2a2b7473;
+  --cor-borda: #0170B9;
   --cor-box-input-focus: 0 0 0 0.2rem rgba(0, 37, 116, 0.3);
 
   --cor-botao-s2: rgb(100, 100, 100);

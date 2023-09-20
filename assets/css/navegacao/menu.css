@@ -1,0 +1,56 @@
+.header{
+  background-color: var(--cor-p2);
+  box-shadow: 1px 15px 50px rgb(0, 0, 0, 0.5);
+}
+
+.cliente{  
+  display: flex;
+  margin-left: 50px;
+}
+
+.logo-principal img{
+  max-width: 200px;
+}
+
+.nav-principal{
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 100px;
+  height: 90px;
+  font-weight: bold;
+}
+
+@media(max-width: 700px){
+  .flex{
+    display: block;
+  }
+}
+
+.menu{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu a{
+  display: block;
+  padding: 10px;
+  color: var(--cor-texto-menu);
+  border-radius: 10px;
+}
+
+.menu a:after{
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0px;
+  margin-top: 4px;
+  background-color: var(--cor-p1);
+  transition: 0.3s;
+}
+
+.menu a:hover:after{
+  width: 100%;
+}

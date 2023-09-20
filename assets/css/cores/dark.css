@@ -1,30 +1,31 @@
 .dark-mode{
   --cor-bg: #171717;
-  --cor-bg-s: #333;
+  --cor-bg-s: #444;
   --cor-input-bg: #333;
   --cor-modal-bg: #222;
-
-  /* --bs-secondary-bg: rgb(114, 114, 114); */
   --cor-form-disabled: rgb(114, 114, 114);
 
-  --cor-texto: #fff;
+  --cor-texto-p: #fff;
+  --cor-texto-s: #000;
+  --cor-texto-menu: #fff;
+  --cor-texto-drop: silver;
   --cor-titulo: #ca1c2a;
   --cor-p1: #0078D4;
 
   --cor-borda-input: rgb(121, 121, 121);
+  --cor-borda: #ca1c2a;
 
   --cor-label-focus: rgba(255, 255, 255, 0.452);
   --cor-borda-input-focus: #595cf7a4;
 
-  /* --cor-box-input: 0 0 0 0.2rem rgba(0, 0, 0, 0.493); */
   --cor-box-input-focus: 0 0 0 0.2rem rgba(20, 57, 136, 0.493);
 
-  color: var(--cor-texto);
+  color: var(--cor-texto-p);
   transition: 0.2s ease;
 }
 
 .form-control:disabled{
-  color: var(--cor-texto);
+  color: var(--cor-texto-p);
   background-color: var(--cor-form-disabled);
 }
 
@@ -52,16 +53,16 @@
 .dark-mode input{
   background-color: transparent;
   border-color: var(--cor-borda-input);
-  color: var(--cor-texto);
+  color: var(--cor-texto-p);
 }
 
 .dark-mode input:focus{
-  color: var(--cor-texto);
+  color: var(--cor-texto-p);
   background-color: var(--cor-input-bg);
 }
 
 .dark-mode .form-select{
-  color: var(--cor-texto);
+  color: var(--cor-texto-p);
   border-color: var(--cor-borda-input);
   background-color: transparent;
 }
@@ -75,7 +76,7 @@
 }
 
 .dark-mode .form-select:focus{
-  color: var(--cor-texto);
+  color: var(--cor-texto-p);
   background-color: var(--cor-bg);
 }
 
@@ -84,13 +85,13 @@
 }
 
 .dark-mode .form-floating>.form-control-plaintext:-webkit-autofill, .form-floating>.form-control:-webkit-autofill{
-  color: var(--cor-texto);
+  color: var(--cor-texto-p);
   background-color: #262626;
 }
 
 .dark-mode input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px rgb(48, 48, 48) inset;
-    color: var(--cor-texto);
+    color: var(--cor-texto-p);
 }
 
 .dark-mode input:-webkit-autofill:focus{
@@ -107,7 +108,7 @@
 .dark-mode select:-webkit-autofill:hover,
 .dark-mode select:-webkit-autofill:focus {
   /* border: 1px solid white; */
-  -webkit-text-fill-color: var(--cor-texto);
+  -webkit-text-fill-color: var(--cor-texto-p);
   /* -webkit-box-shadow: var(--cor-box-input); */
   transition: background-color 5000s ease-in-out 0.1s;
 }

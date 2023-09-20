@@ -1,4 +1,5 @@
 import('./dark.js')
+import('./dropdown-menu.js')
 
 //Botões
 const formProximo = document.querySelector('.form-proximo')
