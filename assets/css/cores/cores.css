@@ -1,5 +1,5 @@
-:root{
-  --cor-bg: #fff; 
+:root {
+  --cor-bg: #fff;
   --cor-bg-s: #171717;
 
   --cor-input-bg: initial;
@@ -9,18 +9,17 @@
   --cor-texto-menu: #fff;
   --cor-texto-drop: #fff;
   --cor-erro: #dc3545;
-
   --cor-label: rgb(160, 160, 160);
 
   --cor-form-disabled: #e9ecef;
 
   --cor-borda-input-focus: #2a2b7473;
-  --cor-borda: #0170B9;
+  --cor-borda: #0170b9;
   --cor-box-input-focus: 0 0 0 0.2rem rgba(0, 37, 116, 0.3);
 
   --cor-botao-s2: rgb(100, 100, 100);
 
-  --cor-p1: #0170B9;
+  --cor-p1: #0170b9;
   --cor-s1: #00538a;
 
   --cor-titulo: #660000;
