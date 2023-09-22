@@ -1,4 +1,5 @@
-import('./dark.js')
+import dark from '../dark.js'
+dark()
 
 //Botões
 const formProximo = document.querySelector('.form-proximo')
@@ -27,16 +28,14 @@ const senhaFeedback2 = document.querySelectorAll('.feedback-senha2')
 //Validar input da senha
 
 function validarSenha(campo) {
-  const regex =
-    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+  const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
   //Controlador para que o input das senhas seja alterado somente quando algum valor for preenchido
   const idSenhas = ['senha', 'senha2']
   const campoId = campo.getAttribute('id')
 
   if (idSenhas.includes(campoId)) {
-    const senhaFeedback2campo =
-      campo.parentNode.querySelectorAll('.feedback-senha2')
+    const senhaFeedback2campo = campo.parentNode.querySelectorAll('.feedback-senha2')
 
     senhaFeedback.forEach((elemento) => {
       elemento.style.display = 'none'

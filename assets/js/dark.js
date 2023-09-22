@@ -1,44 +1,41 @@
-const modo = document.querySelector('#dark')
-const logoLight = document.querySelector("#logo-light")
-const logoDark = document.querySelector('#logo-dark')
+export default function dark() {
+  const modo = document.querySelector('#dark')
+  const logoLight = document.querySelector('#logo-light')
+  const logoDark = document.querySelector('#logo-dark')
 
-function verificarModo(){
-  if (document.body.classList.contains('dark-mode')) {
-    
-    logoLight.style.display = 'none'
-    logoDark.style.display = 'inline-block'
+  function verificarModo() {
+    if (document.body.classList.contains('dark-mode')) {
+      logoLight.style.display = 'none'
+      logoDark.style.display = 'inline-block'
 
-    localStorage.setItem('dark', 1)
-    return
+      localStorage.setItem('dark', 1)
+      return
+    }
+
+    logoLight.style.display = 'inline-block'
+    logoDark.style.display = 'none'
   }
 
-  logoLight.style.display = 'inline-block'
-  logoDark.style.display = 'none'
+  function carregarTema() {
+    const darkMode = localStorage.getItem('dark')
 
-}
+    verificarModo()
 
-function carregarTema(){
-  const darkMode = localStorage.getItem('dark')
+    if (darkMode) {
+      document.body.classList.toggle('dark-mode')
 
-  verificarModo()
+      logoLight.style.display = 'none'
+      logoDark.style.display = 'inline-block'
+    }
+  }
 
-  if(darkMode){
+  carregarTema()
+
+  modo.addEventListener('change', function () {
     document.body.classList.toggle('dark-mode')
 
-    logoLight.style.display = 'none'
-    logoDark.style.display = 'inline-block'
-  }
+    localStorage.removeItem('dark')
 
+    verificarModo()
+  })
 }
-
-carregarTema()
-
-modo.addEventListener('change', function () {
-
-  document.body.classList.toggle('dark-mode')
-
-  localStorage.removeItem('dark')
-
-  verificarModo()
-
-})
