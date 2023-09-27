@@ -1,0 +1,86 @@
+.imagem-fundo {
+  background-image: url(../../img/conexao2.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.section-titulo{
+  height: 600px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.titulo {
+  color: var(--cor-texto-menu);
+  font-size: 5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.section-titulo p {
+  color: var(--cor-texto-drop);
+  font-size: 1.5rem;
+}
+
+.section-titulo button {
+  border: 0px;
+  border-radius: 10px 20px;
+  border-top: 2px solid var(--cor-header-after);
+  border-bottom: 2px solid var(--cor-header-after);
+  height: 40px;
+  cursor: pointer;
+  background-color: var(--cor-botao);
+  font-size: 1.1rem;
+  color: var(--cor-texto-menu);
+  transition: 0.3s linear;
+  width: 150px;
+  height: 50px;
+}
+
+.section-titulo button:hover {
+  transform: scale(1.1);
+  background-color: var(--cor-bg-s);
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  height: 450px;
+  background-color: rgba(var(--cor-bg-section), 0.3);
+  display: grid;
+}
+
+main .section:nth-child(3) {
+  background-color: rgba(var(--cor-bg), 0.3);
+}
+
+.container-section {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-section h2 {
+  font-size: 2.5rem;
+  color: var(--cor-texto-p);
+}
+
+.container-section img {
+  max-height: 450px;
+  place-self: center center;
+}
+
+.conteudo {
+  display: grid;
+  gap: 50px;
+  place-items: center start;
+  max-width: 40ch;
+}

@@ -1,27 +1,30 @@
 .dark-mode{
   --cor-bg: #171717;
-  --cor-bg-s: #444;
+  --cor-bg-s: rgb(68, 68, 68);
+  --cor-bg-section: 158, 42, 43;
+
   --cor-input-bg: #333;
   --cor-modal-bg: #222;
   --cor-form-disabled: rgb(114, 114, 114);
  
   --cor-texto-p: #fff;
   --cor-texto-s: #000;
-  --cor-texto-menu: #fff;
+  --cor-texto-menu: rgb(255, 255, 255);
   --cor-texto-drop: silver;
   --cor-titulo: #ca1c2a;
   --cor-p1: #0078D4;
-
+  --cor-botao: rgb(73, 73, 73);
   --cor-borda-input: rgb(121, 121, 121);
   --cor-borda: #ca1c2a;
 
   --cor-label-focus: rgba(255, 255, 255, 0.452);
   --cor-borda-input-focus: #595cf7a4;
 
+  --cor-header: #660000;
+  --cor-header-after: #0170b9;
   --cor-box-input-focus: 0 0 0 0.2rem rgba(20, 57, 136, 0.493);
 
   color: var(--cor-texto-p);
-  transition: 0.2s ease;
 }
 
 .form-control:disabled{

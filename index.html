@@ -25,11 +25,13 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
-  <body class="fundo">
-    <main class="login-principal">
+  <body>
+    <main class="login-principal fundo-login">
       <section class="area-login">
         <div class="login-container">
-          <a href="#"
+          
+          <div class="login-campo">
+            <a href="#"
             ><img
               src="./assets/img/telecall-logo.svg"
               alt="Telecall Logo Light"
@@ -40,7 +42,6 @@
               id="logo-dark"
           />
         </a>
-          <div class="login-campo">
             <div class="login-titulo">
               <h1>Login</h1>
               <div class="modo-escuro">
@@ -51,7 +52,7 @@
                 </label>
               </div>
             </div>
-            <form action="./principal.html" method="get" class="form-login needs-validation" novalidate>
+            <form action="./principal.html" class="form-login needs-validation" novalidate>
               <div class="form-floating">
                 <input
                   type="text"
@@ -72,8 +73,7 @@
               </div>
               <button type="submit" class="botao-login">Logar</button>
             </form>
-          </div>
-          <button
+            <button
             type="button"
             class="botao-cadastro"
             data-bs-toggle="modal"
@@ -81,6 +81,8 @@
           >
             Cadastrar
           </button>
+          </div>
+          
         </div>
       </section>
 
@@ -105,7 +107,7 @@
               </div>
               <div class="modal-body">
                 <form
-                  action="/"
+                  action="./principal.html"
                   class="needs-validation formulario-principal"
                   novalidate
                 >

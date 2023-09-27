@@ -2,11 +2,24 @@ body {
   background-color: var(--cor-bg);
 }
 
-.fundo{
-  background-image: url(../../img/bg.png);
+.fundo-login{
+  background-image: url(../../img/pngwing.com\ \(4\).png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition: background-image 0.5s ease;
+}
+
+.dark-mode .fundo-login{
+  background-image: url(../../img/pngwing.com\ \(2\).png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login-campo{
+  background-color: var(--cor-modal-bg);
+  border-radius: 20px;
 }
 
 #logo-dark{
@@ -43,7 +56,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
 }
 
 .login-titulo h1{
@@ -74,7 +87,7 @@ body {
   box-shadow: var(--cor-box-input-focus);
 }
 
-.login-campo button {
+.login-campo button[type='submit'] {
   border: 0px;
   border-radius: 10px;
   height: 40px;
@@ -84,7 +97,7 @@ body {
   transition: ease 0.3s;
 }
 
-.login-campo button:hover {
+.login-campo button[type='submit']:hover {
   background-color: var(--cor-s2);
 }
 

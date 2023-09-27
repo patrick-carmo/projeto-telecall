@@ -55,7 +55,7 @@
 }
 
 .botao-limpar:hover{
-  background-color: var(--cor-botao-s2);
+  background-color: var(--cor-botao);
 }
 
 #enviar-cadastro{
