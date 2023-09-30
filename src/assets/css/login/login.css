@@ -2,6 +2,12 @@ body {
   background-color: var(--cor-bg);
 }
 
+#erroLogin{
+  display: none;
+  color: var(--cor-p2);
+  text-align: center;
+}
+
 .fundo-login{
   background-image: url(../../img/pngwing.com\ \(4\).png);
   background-size: cover;
@@ -17,7 +23,13 @@ body {
   background-repeat: no-repeat;
 }
 
-.login-campo{
+.login-campo {
+  display: grid;
+  padding: 20px;
+  gap: 20px;
+  width: 100%;
+  justify-self: center;
+
   background-color: var(--cor-modal-bg);
   border-radius: 20px;
 }
@@ -69,13 +81,6 @@ body {
   flex-direction: column;
 }
 
-.login-campo {
-  display: grid;
-  padding: 20px;
-  gap: 20px;
-  width: 100%;
-  justify-self: center;
-}
 
 .login-campo form {
   display: grid;

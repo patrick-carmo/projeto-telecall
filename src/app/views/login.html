@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Telecall - Login</title>
-    <meta
-      name="description"
-      content="Telecall - Internet, telefonia, celular e muito mais."
-    />
+    <meta name="description" content="Telecall - Internet, telefonia, celular e muito mais." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,28 +17,23 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
 
-    <link rel="stylesheet" href="./src/assets/css/style.css"/>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
 
   <body>
     <main class="login-principal fundo-login">
       <section class="area-login">
         <div class="login-container">
-          
           <div class="login-campo">
             <a href="#"
-            ><img
-              src="./src/assets/img/telecall-logo.svg"
-              alt="Telecall Logo Light"
-              id="logo-light" />
-            <img
-              src="./src/assets/img/telecall-logo-dark.svg"
-              alt="Telecall Logo Dark"
-              id="logo-dark"
-          />
-        </a>
+              ><img src="/img/telecall-logo.svg" alt="Telecall Logo Light" id="logo-light" />
+              <img src="/img/telecall-logo-dark.svg" alt="Telecall Logo Dark" id="logo-dark" />
+            </a>
             <div class="login-titulo">
               <h1>Login</h1>
               <div class="modo-escuro">
@@ -52,37 +44,45 @@
                 </label>
               </div>
             </div>
-            <form action="./principal.html" class="form-login needs-validation" novalidate>
+            <form
+              action="./autenticar"
+              method="post"
+              class="form-login needs-validation"
+              novalidate
+            >
               <div class="form-floating">
                 <input
                   type="text"
                   class="form-control"
                   id="login-entrar"
+                  name="login"
                   placeholder="Login"
                 />
-                <label for="Login" class="form-label">Login</label>
+                <label for="Login-entrar" class="form-label">Login</label>
               </div>
               <div class="form-floating">
                 <input
                   type="password"
                   class="form-control"
+                  name="senha"
                   id="senha-entrar"
                   placeholder="Senha"
                 />
-                <label for="senha" class="form-label">Senha</label>
+                <label for="senha-entrar" class="form-label">Senha</label>
               </div>
               <button type="submit" class="botao-login">Logar</button>
+              <button type="button" id="login-Teste" class="botao-cadastro">Testar Aplicação</button>
+              <p id="erroLogin"></p>
             </form>
             <button
-            type="button"
-            class="botao-cadastro"
-            data-bs-toggle="modal"
-            data-bs-target="#modal"
-          >
-            Cadastrar
-          </button>
+              type="button"
+              class="botao-cadastro"
+              data-bs-toggle="modal"
+              data-bs-target="#modal"
+            >
+              Cadastrar
+            </button>
           </div>
-          
         </div>
       </section>
 
@@ -107,7 +107,8 @@
               </div>
               <div class="modal-body">
                 <form
-                  action="./principal.html"
+                  action="/cadastrar"
+                  method="post"
                   class="needs-validation formulario-principal"
                   novalidate
                 >
@@ -117,6 +118,7 @@
                         type="text"
                         class="form-control"
                         id="nome"
+                        name="nome"
                         placeholder="Nome"
                         maxlength="60"
                         pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$"
@@ -129,6 +131,7 @@
                         type="date"
                         class="form-control personalizado"
                         id="nascimento"
+                        name="nascimento"
                         placeholder="Data de nascimento"
                         min="1900-01-01"
                         max="2010-01-01"
@@ -139,11 +142,12 @@
                       class="form-select form-select-sm form-control"
                       aria-label="Small select example"
                       id="sexo"
+                      name="sexo"
                     >
                       <option value="" selected>Sexo</option>
-                      <option value="feminino">Masculino</option>
-                      <option value="masculino">Feminino</option>
-                      <option value="outro">Outro</option>
+                      <option value="Feminino">Masculino</option>
+                      <option value="Masculino">Feminino</option>
+                      <option value="Outro">Outro</option>
                     </select>
 
                     <div class="form-floating modal-input">
@@ -151,6 +155,7 @@
                         type="text"
                         class="form-control"
                         id="nome-materno"
+                        name="nomeMaterno"
                         placeholder=""
                         maxlength="60"
                         pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$"
@@ -163,6 +168,7 @@
                         type="text"
                         class="form-control"
                         id="cpf"
+                        name="cpf"
                         placeholder=""
                         minlength="14"
                       />
@@ -174,6 +180,7 @@
                         type="tel"
                         class="form-control"
                         id="celular"
+                        name="celular"
                         placeholder=""
                         minlength="19"
                       />
@@ -185,6 +192,7 @@
                         type="tel"
                         class="form-control"
                         id="fixo"
+                        name="fixo"
                         placeholder=""
                         minlength="18"
                       />
@@ -196,6 +204,7 @@
                         type="text"
                         class="form-control"
                         id="login"
+                        name="login"
                         placeholder=""
                         minlength="5"
                         maxlength="6"
@@ -208,6 +217,7 @@
                         type="text"
                         class="form-control"
                         id="senha"
+                        name="senha"
                         placeholder="Senha"
                         minlength="8"
                         maxlength="15"
@@ -245,13 +255,12 @@
                         type="text"
                         class="form-control"
                         id="cep"
+                        name="cep"
                         placeholder="cep"
                         minlength="9"
                         required
                       />
-                      <label for="cep"
-                        >CEP <span class="obrigatorio">*</span></label
-                      >
+                      <label for="cep">CEP <span class="obrigatorio">*</span></label>
                       <p class="invalid-feedback">Campo inválido!</p>
                     </div>
                     <div class="form-floating input-oculto">
@@ -259,6 +268,7 @@
                         type="text"
                         class="form-control"
                         id="uf"
+                        name="uf"
                         placeholder="Estado"
                         disabled
                       />
@@ -269,6 +279,7 @@
                         type="text"
                         class="form-control"
                         id="bairro"
+                        name="bairro"
                         placeholder="Bairro"
                         disabled
                       />
@@ -279,6 +290,7 @@
                         type="text"
                         class="form-control"
                         id="localidade"
+                        name="localidade"
                         placeholder="Cidade"
                         disabled
                       />
@@ -289,6 +301,7 @@
                         type="text"
                         class="form-control"
                         id="logradouro"
+                        name="logradouro"
                         placeholder="Logradouro"
                         disabled
                       />
@@ -299,20 +312,20 @@
                         type="text"
                         class="form-control"
                         id="complemento"
+                        name="complemento"
                         placeholder="Complemento"
                         maxlength="20"
                         pattern="^(?![.,\s])[\wÀ-ÿ.,\s]*$"
                         required
                       />
-                      <label for="complemento"
-                        >Numero <span class="obrigatorio">*</span></label
-                      >
+                      <label for="complemento">Numero <span class="obrigatorio">*</span></label>
                     </div>
                     <div class="form-floating input-oculto modal-input">
                       <input
                         type="text"
                         class="form-control"
                         id="complementoAdicional"
+                        name="complementoAdicional"
                         placeholder="Complemento"
                         maxlength="40"
                         pattern="^(?![.,\s])[\wÀ-ÿ.,\s]{0,}$"
@@ -321,18 +334,11 @@
                     </div>
                   </div>
                   <div class="botao-formulario">
-                    <button
-                      type="submit"
-                      class="btn btn-primary estilo-botao"
-                      id="enviar-cadastro"
-                    >
+                    <button type="submit" class="btn btn-primary estilo-botao" id="enviar-cadastro">
                       Cadastrar
                     </button>
 
-                    <button
-                      type="reset"
-                      class="btn btn-secondary estilo-botao botao-limpar"
-                    >
+                    <button type="reset" class="btn btn-secondary estilo-botao botao-limpar">
                       Limpar
                     </button>
                   </div>
@@ -340,11 +346,7 @@
               </div>
 
               <div class="modal-footer">
-                <button
-                  type="button"
-                  class="form-anterior btn btn-secondary estilo-botao"
-                  disabled
-                >
+                <button type="button" class="form-anterior btn btn-secondary estilo-botao" disabled>
                   Anterior
                 </button>
 
@@ -356,10 +358,7 @@
                   Fechar
                 </button>
 
-                <button
-                  type="button"
-                  class="form-proximo btn btn-secondary estilo-botao"
-                >
+                <button type="button" class="form-proximo btn btn-secondary estilo-botao">
                   Próximo
                 </button>
               </div>
@@ -382,6 +381,6 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="./src/assets/js/login/login.js"></script>
+    <script type="module" src="/js/login/login.js"></script>
   </body>
 </html>
