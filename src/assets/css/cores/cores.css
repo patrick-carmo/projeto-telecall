@@ -12,9 +12,17 @@
   --cor-erro: #dc3545;
   --cor-label: rgb(160, 160, 160);
 
+  --cor-subtitulo-section: linear-gradient(to top right, #b3e0ff, #0170b9);
   --cor-header: #0170b9;
   --cor-header-after: #ca1c2a;
   --cor-form-disabled: #e9ecef;
+
+
+  --cor-teste: background: var(--cor-subtitulo-section);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.5);
 
   --cor-borda-input-focus: #2a2b7473;
   --cor-borda: #0170b9;

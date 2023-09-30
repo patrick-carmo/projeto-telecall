@@ -17,6 +17,7 @@
   --cor-borda-input: rgb(121, 121, 121);
   --cor-borda: #ca1c2a;
 
+  --cor-subtitulo-section: linear-gradient(to top right, #ff9d9d, #e70000);
   --cor-label-focus: rgba(255, 255, 255, 0.452);
   --cor-borda-input-focus: #595cf7a4;
 
