@@ -1,387 +1,94 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Telecall - Login</title>
-    <meta
-      name="description"
-      content="Telecall - Internet, telefonia, celular e muito mais."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&family=Roboto:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-    <link rel="stylesheet" href="../../assets/css/style.css"/>
-  </head>
-
-  <body>
-    <main class="login-principal fundo-login">
-      <section class="area-login">
-        <div class="login-container">
-          
-          <div class="login-campo">
-            <a href="#"
-            ><img
-              src="../../assets/img/telecall-logo.svg"
-              alt="Telecall Logo Light"
-              id="logo-light" />
-            <img
-              src="../../assets/img/telecall-logo-dark.svg"
-              alt="Telecall Logo Dark"
-              id="logo-dark"
-          />
-        </a>
-            <div class="login-titulo">
-              <h1>Login</h1>
-              <div class="modo-escuro">
-                <input type="checkbox" name="dark" id="dark" />
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Telecall</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav-principal">
+      <a href="" class="logo-principal">
+        <img src="/img/telecall-logo-header-blue.svg" alt="Logo Telecall" id="logo-light">
+        <img src="/img/telecall-logo-header-red.svg" alt="Logo Telecall" id="logo-dark">
+      </a>
+      <button data-menu="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul class="menu" data-menu="list">
+        <li data-dropdown>
+          <a href="#">Internet</a>
+          <ul class="dropdown">
+            <li><a href="https://telecall.com/internet-dedicada/">Internet Dedicada</a></li>
+            <li><a href="">Banda Larga</a></li>
+            <li><a href="">Wi-Fi</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Rede e Infraestrutura</a></li>
+        <li><a href="#">Outras soluções</a></li>
+        <div class="cliente">
+          <li data-dropdown>
+            <a href="#">Acessibilidade</a>
+            <ul class="dropdown">
+              <li class="drop-flex">
+                <input type="checkbox" name="dark" id="dark">
                 <label for="dark" class="label-dark">
                   <i class="bi bi-sun"></i>
                   <i class="bi bi-moon"></i>
                 </label>
-              </div>
-            </div>
-            <form action="./principal.html" class="form-login needs-validation" novalidate>
-              <div class="form-floating">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="login-entrar"
-                  placeholder="Login"
-                />
-                <label for="Login" class="form-label">Login</label>
-              </div>
-              <div class="form-floating">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="senha-entrar"
-                  placeholder="Senha"
-                />
-                <label for="senha" class="form-label">Senha</label>
-              </div>
-              <button type="submit" class="botao-login">Logar</button>
-            </form>
-            <button
-            type="button"
-            class="botao-cadastro"
-            data-bs-toggle="modal"
-            data-bs-target="#modal"
-          >
-            Cadastrar
-          </button>
-          </div>
-          
+                <button class="botao-acc" id="diminuir">A-</button>
+                <button class="botao-acc" id="aumentar">A+</button>
+                <button class="botao-acc" id="original">R</button>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/logout" id="nomeLogin">Login</a></li>
         </div>
-      </section>
-
-      <section class="section-modal">
-        <div
-          class="modal fade"
-          id="modal"
-          tabindex="-1"
-          aria-labelledby="modalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2 class="modal-title fs-5 titulo-modal">Cadastro de login</h2>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form
-                  action="./principal.html"
-                  class="needs-validation formulario-principal"
-                  novalidate
-                >
-                  <div class="cadastro">
-                    <div class="form-floating modal-input">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="nome"
-                        placeholder="Nome"
-                        maxlength="60"
-                        pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$"
-                      />
-                      <label for="nome">Nome</label>
-                      <p class="invalid-feedback">Campo inválido!</p>
-                    </div>
-                    <div class="form-floating">
-                      <input
-                        type="date"
-                        class="form-control personalizado"
-                        id="nascimento"
-                        placeholder="Data de nascimento"
-                        min="1900-01-01"
-                        max="2010-01-01"
-                      />
-                      <label for="nascimento">Data de nascimento</label>
-                    </div>
-                    <select
-                      class="form-select form-select-sm form-control"
-                      aria-label="Small select example"
-                      id="sexo"
-                    >
-                      <option value="" selected>Sexo</option>
-                      <option value="feminino">Masculino</option>
-                      <option value="masculino">Feminino</option>
-                      <option value="outro">Outro</option>
-                    </select>
-
-                    <div class="form-floating modal-input">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="nome-materno"
-                        placeholder=""
-                        maxlength="60"
-                        pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$"
-                      />
-                      <label for="nome-materno">Nome materno</label>
-                      <p class="invalid-feedback">Campo inválido!</p>
-                    </div>
-                    <div class="form-floating modal-input">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="cpf"
-                        placeholder=""
-                        minlength="14"
-                      />
-                      <label for="cpf">CPF</label>
-                      <p class="invalid-feedback">Campo inválido!</p>
-                    </div>
-                    <div class="form-floating">
-                      <input
-                        type="tel"
-                        class="form-control"
-                        id="celular"
-                        placeholder=""
-                        minlength="19"
-                      />
-                      <label for="celular">Telefone Celular</label>
-                      <p class="invalid-feedback">Campo inválido!</p>
-                    </div>
-                    <div class="form-floating">
-                      <input
-                        type="tel"
-                        class="form-control"
-                        id="fixo"
-                        placeholder=""
-                        minlength="18"
-                      />
-                      <label for="fixo">Telefone Fixo</label>
-                      <p class="invalid-feedback">Campo inválido!</p>
-                    </div>
-                    <div class="form-floating modal-input">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="login"
-                        placeholder=""
-                        minlength="5"
-                        maxlength="6"
-                      />
-                      <label for="login">Login</label>
-                      <p class="invalid-feedback">Campo inválido!</p>
-                    </div>
-                    <div class="form-floating">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="senha"
-                        placeholder="Senha"
-                        minlength="8"
-                        maxlength="15"
-                        pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                        required
-                      />
-                      <label for="senha">Senha</label>
-                      <p class="feedback-senha2">
-                        Obrigatório: Letra maiúscula e caracter especial!
-                      </p>
-                      <p class="feedback-senha">Senhas não idênticas</p>
-                    </div>
-                    <div class="form-floating">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="senha2"
-                        placeholder="Senha"
-                        minlength="8"
-                        maxlength="15"
-                        pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                        required
-                      />
-                      <label for="senha2">Confirmar Senha</label>
-                      <p class="feedback-senha2">
-                        Obrigatório: Letra maiúscula e caracter especial!
-                      </p>
-                      <p class="feedback-senha">Senhas não idênticas</p>
-                    </div>
-                  </div>
-
-                  <div class="form-endereco">
-                    <div class="form-floating">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="cep"
-                        placeholder="cep"
-                        minlength="9"
-                        required
-                      />
-                      <label for="cep"
-                        >CEP <span class="obrigatorio">*</span></label
-                      >
-                      <p class="invalid-feedback">Campo inválido!</p>
-                    </div>
-                    <div class="form-floating input-oculto">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="uf"
-                        placeholder="Estado"
-                        disabled
-                      />
-                      <label for="uf">Estado</label>
-                    </div>
-                    <div class="form-floating input-oculto">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="bairro"
-                        placeholder="Bairro"
-                        disabled
-                      />
-                      <label for="bairro">Bairro</label>
-                    </div>
-                    <div class="form-floating input-oculto">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="localidade"
-                        placeholder="Cidade"
-                        disabled
-                      />
-                      <label for="localidade">Cidade</label>
-                    </div>
-                    <div class="form-floating input-oculto">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="logradouro"
-                        placeholder="Logradouro"
-                        disabled
-                      />
-                      <label for="logradouro">Logradouro</label>
-                    </div>
-                    <div class="form-floating input-oculto">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="complemento"
-                        placeholder="Complemento"
-                        maxlength="20"
-                        pattern="^(?![.,\s])[\wÀ-ÿ.,\s]*$"
-                        required
-                      />
-                      <label for="complemento"
-                        >Numero <span class="obrigatorio">*</span></label
-                      >
-                    </div>
-                    <div class="form-floating input-oculto modal-input">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="complementoAdicional"
-                        placeholder="Complemento"
-                        maxlength="40"
-                        pattern="^(?![.,\s])[\wÀ-ÿ.,\s]{0,}$"
-                      />
-                      <label for="complementoAdicional">Complemento</label>
-                    </div>
-                  </div>
-                  <div class="botao-formulario">
-                    <button
-                      type="submit"
-                      class="btn btn-primary estilo-botao"
-                      id="enviar-cadastro"
-                    >
-                      Cadastrar
-                    </button>
-
-                    <button
-                      type="reset"
-                      class="btn btn-secondary estilo-botao botao-limpar"
-                    >
-                      Limpar
-                    </button>
-                  </div>
-                </form>
-              </div>
-
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="form-anterior btn btn-secondary estilo-botao"
-                  disabled
-                >
-                  Anterior
-                </button>
-
-                <button
-                  type="button"
-                  class="btn btn-secondary botao-fechar"
-                  data-bs-dismiss="modal"
-                >
-                  Fechar
-                </button>
-
-                <button
-                  type="button"
-                  class="form-proximo btn btn-secondary estilo-botao"
-                >
-                  Próximo
-                </button>
-              </div>
-            </div>
-          </div>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="section-titulo imagem-fundo">
+      <h1 class="titulo">Telecall</h1>
+      <p>Soluções Inteligentes para sua empresa.</p>
+      <button>Saiba Mais</button>
+    </section>
+    <section class="section">
+      <div class="container-section">
+        <img src="/img/cartao.png" alt="">
+        <div class="conteudo">
+          <h2>Nossos Serviços</h2>
+          <p>Sou um parágrafo. Clique para adicionar o seu próprio texto e editar. Sou um ótimo espaço para que seus usuários saibam mais sobre você.</p>
+          <button class="estilo-botao">Saiba Mais</button>
         </div>
-      </section>
-    </main>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-    <script type="module" src="../../assets/js/login/login.js"></script>
-  </body>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container-section">
+        <img src="/img/cartao.png" alt="">
+        <div class="conteudo">
+          <h2>Nossos Serviços</h2>
+          <p>Sou um parágrafo. Clique para adicionar o seu próprio texto e editar. Sou um ótimo espaço para que seus usuários saibam mais sobre você.</p>
+          <button class="estilo-botao">Saiba Mais</button>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container-section">
+        <img src="/img/cartao.png" alt="">
+        <div class="conteudo">
+          <h2>Nossos Serviços</h2>
+          <p>Sou um parágrafo. Clique para adicionar o seu próprio texto e editar. Sou um ótimo espaço para que seus usuários saibam mais sobre você.</p>
+          <button class="estilo-botao">Saiba Mais</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/js/menu/menu.js"></script>
+  <script type="module" src="/js/index/nomeLogin.js"></script>
+</body>
 </html>

@@ -1,4 +1,6 @@
 import dark from '../dark.js'
+import verificarLogin from '../erros/verificarLogin.js'
+import botaoTeste from './loginTeste.js'
 dark()
 
 //Botões
@@ -281,6 +283,10 @@ formularioPrincipal.addEventListener('submit', function (event) {
     }
   })
   if (!temErro) {
+    document.getElementById('uf').disabled = false
+    document.getElementById('bairro').disabled = false
+    document.getElementById('localidade').disabled = false
+    document.getElementById('logradouro').disabled = false
     formularioPrincipal.submit()
   }
 })
