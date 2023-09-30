@@ -6,6 +6,8 @@ const app = express()
 const rotas = require('./app/routes/rotas')
 const port = process.env.PORT || 3000
 
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/app/views')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(__dirname + '/assets'))
@@ -16,6 +18,7 @@ app.use(
     saveUninitialized: true,
   })
 )
+
 app.use(rotas)
 
 app.listen(port, () => {

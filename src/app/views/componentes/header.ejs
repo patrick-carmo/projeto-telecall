@@ -1,0 +1,39 @@
+<header class="header">
+  <nav class="nav-principal">
+    <a href="" class="logo-principal">
+      <img src="/img/telecall-logo-header-blue.svg" alt="Logo Telecall" id="logo-light" />
+      <img src="/img/telecall-logo-header-red.svg" alt="Logo Telecall" id="logo-dark" />
+    </a>
+    <button data-menu="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul class="menu" data-menu="list">
+      <li data-dropdown>
+        <a href="#">Internet</a>
+        <ul class="dropdown">
+          <li><a href="https://telecall.com/internet-dedicada/">Internet Dedicada</a></li>
+          <li><a href="">Banda Larga</a></li>
+          <li><a href="">Wi-Fi</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Rede e Infraestrutura</a></li>
+      <li><a href="#">Outras soluções</a></li>
+      <div class="cliente">
+        <li data-dropdown>
+          <a href="#">Acessibilidade</a>
+          <ul class="dropdown">
+            <li class="drop-flex">
+              <input type="checkbox" name="dark" id="dark" />
+              <label for="dark" class="label-dark">
+                <i class="bi bi-sun"></i>
+                <i class="bi bi-moon"></i>
+              </label>
+              <button class="botao-acc" id="diminuir">A-</button>
+              <button class="botao-acc" id="aumentar">A+</button>
+              <button class="botao-acc" id="original">R</button>
+            </li>
+          </ul>
+        </li>
+        <li><a href="/logout" id="nomeLogin">Login</a></li>
+      </div>
+    </ul>
+  </nav>
+</header>

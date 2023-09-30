@@ -283,10 +283,17 @@ formularioPrincipal.addEventListener('submit', function (event) {
     }
   })
   if (!temErro) {
-    document.getElementById('uf').disabled = false
-    document.getElementById('bairro').disabled = false
-    document.getElementById('localidade').disabled = false
-    document.getElementById('logradouro').disabled = false
+    const elementos = ['uf', 'bairro', 'localidade', 'logradouro']
+    elementos.forEach((elementoId) => {
+      const elemento = document.getElementById(elementoId)
+      elemento.disabled = false
+    })
+
     formularioPrincipal.submit()
+    
+    elementos.forEach((elementoId) => {
+      const elemento = document.getElementById(elementoId)
+      elemento.disabled = true
+    })
   }
 })

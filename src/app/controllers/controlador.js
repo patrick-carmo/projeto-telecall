@@ -4,7 +4,7 @@ const session = require('express-session')
 
 const controle = {
   index: (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/index.html'))
+      res.render('index')
   },
   login: (req, res) => {
     res.sendFile(path.join(__dirname, '../views/login.html'))
@@ -29,6 +29,7 @@ const controle = {
       const nomeDoUsuario = resultado.rows[0].login
       req.session.nomeDoUsuario = nomeDoUsuario
       req.session.usuarioLogado = true
+      // res.render('index', { title: 'Telecall' })
       res.redirect('/')
     } catch (e) {
       req.session.erro = e.message
