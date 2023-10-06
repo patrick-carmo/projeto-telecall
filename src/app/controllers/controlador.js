@@ -1,73 +1,57 @@
 const path = require('path')
 const pool = require('../config/conexao')
-const session = require('express-session')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const erro = require('../util/erro')
 
 const controle = {
   index: (req, res) => {
-      res.render('index')
+    const nomeOuLogin = req.nomeOuLogin
+    res.status(200).render('index', { nomeOuLogin })
   },
   login: (req, res) => {
     res.sendFile(path.join(__dirname, '../views/login.html'))
   },
   autenticar: async (req, res) => {
     const { login, senha } = req.body
-
     try {
-      let query = `select * from usuario where login = $1`
-      let values = [login]
+      const query = `select * from usuario where login = $1`
+      const values = [login]
 
       const resultado = await pool.query(query, values)
-      if (resultado.rows.length === 0) {
-        throw new Error('Usuário não encontrado!')
-      }
-      const senhaCadastrada = resultado.rows[0].senha
 
-      if (senha !== senhaCadastrada) {
-        throw new Error('Senha inválida!')
+      if (resultado.rowCount === 0) {
+        erro(400, 'Login incorreto!')
       }
 
-      const nomeDoUsuario = resultado.rows[0].login
-      req.session.nomeDoUsuario = nomeDoUsuario
-      req.session.usuarioLogado = true
-      // res.render('index', { title: 'Telecall' })
-      res.redirect('/')
+      const confirmarSenha = await bcrypt.compare(senha, resultado.rows[0].senha)
+
+      if (!confirmarSenha) {
+        erro(400, 'Senha incorreta!')
+      }
+
+      const token = jwt.sign(
+        { id: resultado.rows[0].id, nome: resultado.rows[0].nome, login: resultado.rows[0].login },
+        process.env.senha,
+        {
+          expiresIn: '30d',
+        }
+      )
+
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: true,
+      })
+
+      res.status(200).json({ mensagem: 'Login efetuado com sucesso!' })
     } catch (e) {
-      req.session.erro = e.message
-      res.redirect('/login.html')
+      res.status(e.status || 500).json({ mensagem: e.message })
     }
-  },
-
-  verificarAutenticacao: (req, res, next) => {
-    if (req.session.usuarioLogado) {
-      return next()
-    }
-
-    res.redirect('/login.html')
-  },
-
-  erro: (req, res) => {
-    res.json({ error: req.session.erro || null })
-  },
-
-  limparErro: (req, res) => {
-    delete req.session.erro
-    res.sendStatus(200)
-  },
-
-  nome: (req, res) => {
-    if (!req.session.usuarioLogado) {
-      return res.json({ autenticado: false })
-    }
-    res.json({ autenticado: true, nomeDoUsuario: req.session.nomeDoUsuario })
   },
 
   logout: (req, res) => {
-    req.session.destroy((err) => {
-      if (!err) {
-        return res.redirect('/login.html')
-      }
-      console.error('Erro ao destruir sessão:', err)
-    })
+    res.clearCookie('token')
+    res.redirect('/login')
   },
 }
 module.exports = controle

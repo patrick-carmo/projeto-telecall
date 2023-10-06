@@ -36,6 +36,7 @@ footer {
   gap: 20px;
 }
 
-.footer-flex img{
-  max-width: 40px;
+.footer-flex a{
+  height: 40px;
+  width: 40px;
 }

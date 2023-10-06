@@ -3,12 +3,17 @@
   box-shadow: 1px 15px 50px rgb(0, 0, 0, 0.5);
 }
 
+.loginUsuario{
+  border-bottom: 2px solid var(--cor-header-after);
+  border-radius: 5px;
+}
+
 .cliente{  
   display: flex;
   margin-left: 50px;
 }
 
-.logo-principal img{
+.logo-principal{
   max-width: 200px;
 }
 

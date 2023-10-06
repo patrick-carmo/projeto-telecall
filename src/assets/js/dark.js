@@ -1,19 +1,43 @@
 export default function dark() {
   const modo = document.querySelector('#dark')
-  const logoLight = document.querySelector('#logo-light')
-  const logoDark = document.querySelector('#logo-dark')
+  const logoMenu = document.querySelector('#logo-menu')
+  const logoLogin = document.querySelector('#logo-login')
+  const facebookIcon = document.querySelector('#facebook-icone')
+  const instagramIcon = document.querySelector('#instagram-icone')
+  const linkedinIcon = document.querySelector('#linkedin-icone')
 
   function verificarModo() {
     if (document.body.classList.contains('dark-mode')) {
-      logoLight.style.display = 'none'
-      logoDark.style.display = 'inline-block'
+      if (facebookIcon && instagramIcon && linkedinIcon) {
+        facebookIcon.src = '/img/facebook-dark.svg'
+        instagramIcon.src = '/img/instagram-dark.svg'
+        linkedinIcon.src = '/img/linkedin-dark.svg'
+      }
 
+      if (logoMenu) {
+        logoMenu.src = '/img/telecall-logo-header-red.svg'
+      }
+
+      if (logoLogin) {
+        logoLogin.src = '/img/telecall-logo-dark.svg'
+      }
       localStorage.setItem('dark', 1)
       return
     }
 
-    logoLight.style.display = 'inline-block'
-    logoDark.style.display = 'none'
+    if (logoMenu) {
+      logoMenu.src = '/img/telecall-logo-header-blue.svg'
+    }
+
+    if (logoLogin) {
+      logoLogin.src = '/img/telecall-logo.svg'
+    }
+
+    if (facebookIcon && instagramIcon && linkedinIcon) {
+      facebookIcon.src = '/img/facebook.svg'
+      instagramIcon.src = '/img/instagram.svg'
+      linkedinIcon.src = '/img/linkedin.svg'
+    }
   }
 
   function carregarTema() {
@@ -24,8 +48,19 @@ export default function dark() {
     if (darkMode) {
       document.body.classList.toggle('dark-mode')
 
-      logoLight.style.display = 'none'
-      logoDark.style.display = 'inline-block'
+      if (logoMenu) {
+        logoMenu.src = '/img/telecall-logo-header-red.svg'
+      }
+
+      if (logoLogin) {
+        logoLogin.src = '/img/telecall-logo-dark.svg'
+      }
+
+      if (facebookIcon && instagramIcon && linkedinIcon) {
+        facebookIcon.src = '/img/facebook-dark.svg'
+        instagramIcon.src = '/img/instagram-dark.svg'
+        linkedinIcon.src = '/img/linkedin-dark.svg'
+      }
     }
   }
 

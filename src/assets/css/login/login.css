@@ -2,10 +2,19 @@ body {
   background-color: var(--cor-bg);
 }
 
-#erroLogin{
+#erroLogin {
   display: none;
   color: var(--cor-p2);
   text-align: center;
+  word-wrap: break-word;
+}
+
+#erroCadastro {
+  display: none;
+  color: var(--cor-p2);
+  padding-top: 20px;
+  text-align: center;
+  word-wrap: break-word;
 }
 
 .fundo-login{
@@ -32,10 +41,6 @@ body {
 
   background-color: var(--cor-modal-bg);
   border-radius: 20px;
-}
-
-#logo-dark{
-  display: none;
 }
 
 .login-principal {

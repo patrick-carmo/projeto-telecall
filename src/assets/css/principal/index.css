@@ -50,9 +50,8 @@
 .section {
   display: flex;
   justify-content: center;
-  height: 450px;
+  height: 500px;
   background-color: rgba(var(--cor-bg-section), 0.3);
-  display: grid;
 }
 
 .section:nth-child(3) {
@@ -61,11 +60,14 @@
 
 .container-section {
   max-width: 1200px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 100px;
   justify-content: center;
   align-items: center;
+}
+
+.section:nth-child(3) .container-section{
+  flex-direction:row-reverse;
 }
 
 .container-section h2 {
@@ -94,7 +96,7 @@
 .conteudo {
   display: grid;
   gap: 50px;
-  place-items: center start;
+  justify-items: center;
   max-width: 40ch;
 }
 

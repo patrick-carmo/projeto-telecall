@@ -1,8 +1,7 @@
 <header class="header">
   <nav class="nav-principal">
     <a href="" class="logo-principal">
-      <img src="/img/telecall-logo-header-blue.svg" alt="Logo Telecall" id="logo-light" />
-      <img src="/img/telecall-logo-header-red.svg" alt="Logo Telecall" id="logo-dark" />
+      <img src="/img/telecall-logo-header-blue.svg" alt="Logo Telecall" id="logo-menu" />
     </a>
     <button data-menu="button" aria-expanded="false" aria-controls="menu">Menu</button>
     <ul class="menu" data-menu="list">
@@ -32,7 +31,11 @@
             </li>
           </ul>
         </li>
-        <li><a href="/logout" id="nomeLogin">Login</a></li>
+        <li>
+          <a href="/logout" id="nomeLogin"
+            ><span class="loginUsuario">Olá, <%= nomeOuLogin %>!</span></a
+          >
+        </li>
       </div>
     </ul>
   </nav>
