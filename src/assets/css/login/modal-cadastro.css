@@ -86,6 +86,10 @@
   color: var(--cor-label);
 }
 
+.form-floating>.form-control:disabled~label, .form-floating>:disabled~label{
+  color: var(--cor-label);
+}
+
 @media(max-width: 400px){
   .cadastro, .form-endereco{
     grid-template-columns: 1fr;

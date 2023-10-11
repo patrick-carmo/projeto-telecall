@@ -5,6 +5,7 @@ export default function dark() {
   const facebookIcon = document.querySelector('#facebook-icone')
   const instagramIcon = document.querySelector('#instagram-icone')
   const linkedinIcon = document.querySelector('#linkedin-icone')
+  const seta = document.querySelector('#seta-topo')
 
   function verificarModo() {
     if (document.body.classList.contains('dark-mode')) {
@@ -20,6 +21,9 @@ export default function dark() {
 
       if (logoLogin) {
         logoLogin.src = '/img/telecall-logo-dark.svg'
+      }
+      if (seta) {
+        seta.src = '/img/back-top-dark.svg'
       }
       localStorage.setItem('dark', 1)
       return
@@ -37,6 +41,10 @@ export default function dark() {
       facebookIcon.src = '/img/facebook.svg'
       instagramIcon.src = '/img/instagram.svg'
       linkedinIcon.src = '/img/linkedin.svg'
+    }
+
+    if (seta) {
+      seta.src = '/img/back-top.svg'
     }
   }
 
@@ -60,6 +68,10 @@ export default function dark() {
         facebookIcon.src = '/img/facebook-dark.svg'
         instagramIcon.src = '/img/instagram-dark.svg'
         linkedinIcon.src = '/img/linkedin-dark.svg'
+      }
+
+      if (seta) {
+        seta.src = '/img/back-top-dark.svg'
       }
     }
   }

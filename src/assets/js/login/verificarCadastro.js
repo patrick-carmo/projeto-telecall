@@ -56,6 +56,7 @@ export default function verificarCadastro() {
     try {
       obterCampo(ids)
 
+      
       if (camposValidos) {
         await realizarSolicitacao('/cadastrar', valores)
         window.location.href = '/'

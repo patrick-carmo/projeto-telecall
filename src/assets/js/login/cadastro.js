@@ -264,7 +264,7 @@ function cadastro() {
     })
 
     if (!temErro) {
-      const elementos = ['uf', 'bairro', 'localidade', 'logradouro']
+      const elementos = ['uf', 'bairro', 'localidade', 'logradouro', 'cpf']
       function habilitarCampos(valor) {
         elementos.forEach((elementoId) => {
           const elemento = document.getElementById(elementoId)

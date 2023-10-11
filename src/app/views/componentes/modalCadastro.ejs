@@ -1,0 +1,260 @@
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5 titulo-modal">Alterar Cadastro</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form
+          action="/entrar"
+          method="post"
+          class="needs-validation formulario-principal"
+          id="formulario-cadastro"
+          novalidate
+        >
+          <div class="cadastro">
+            <div class="form-floating modal-input">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="nome"
+                name="nome"
+                placeholder="Nome"
+                maxlength="60"
+                pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$"
+              />
+              <label for="nome">Nome</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                class="form-control personalizado input-cadastro"
+                id="nascimento"
+                name="nascimento"
+                placeholder="Data de nascimento"
+                min="1900-01-01"
+                max="2010-01-01"
+              />
+              <label for="nascimento">Data de nascimento</label>
+            </div>
+            <select
+              class="form-select form-select-sm form-control input-cadastro"
+              aria-label="Small select example"
+              id="sexo"
+              name="sexo"
+            >
+              <option value="" selected>Sexo</option>
+              <option value="Feminino">Masculino</option>
+              <option value="Masculino">Feminino</option>
+              <option value="Outro">Outro</option>
+            </select>
+
+            <div class="form-floating modal-input">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="nomeMaterno"
+                name="nomeMaterno"
+                placeholder=""
+                maxlength="60"
+                pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{1,}$"
+              />
+              <label for="nomeMaterno">Nome materno</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+            </div>
+            <div class="form-floating modal-input">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="cpf"
+                name="cpf"
+                placeholder=""
+                minlength="14"
+                disabled
+              />
+              <label for="cpf">CPF</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+            </div>
+            <div class="form-floating">
+              <input
+                type="tel"
+                class="form-control input-cadastro"
+                id="celular"
+                name="celular"
+                placeholder=""
+                minlength="19"
+              />
+              <label for="celular">Telefone Celular</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+            </div>
+            <div class="form-floating">
+              <input
+                type="tel"
+                class="form-control input-cadastro"
+                id="fixo"
+                name="fixo"
+                placeholder=""
+                minlength="18"
+              />
+              <label for="fixo">Telefone Fixo</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+            </div>
+            <div class="form-floating modal-input">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="login"
+                name="login"
+                placeholder=""
+                minlength="5"
+                maxlength="6"
+                pattern="^[A-Za-z0-9]{5,6}$"
+                disabled
+              />
+              <label for="login">Login</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="senha"
+                name="senha"
+                placeholder="Senha"
+                minlength="8"
+                maxlength="15"
+                pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                required
+              />
+              <label for="senha">Senha</label>
+              <p class="feedback-senha2">Obrigatório: Letra maiúscula e caracter especial!</p>
+              <p class="feedback-senha">Senhas não idênticas</p>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="senha2"
+                placeholder="Senha"
+                minlength="8"
+                maxlength="15"
+                pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                required
+              />
+              <label for="senha2">Confirmar Senha</label>
+              <p class="feedback-senha2">Obrigatório: Letra maiúscula e caracter especial!</p>
+              <p class="feedback-senha">Senhas não idênticas</p>
+            </div>
+          </div>
+
+          <div class="form-endereco">
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="cep"
+                name="cep"
+                placeholder="cep"
+                pattern="[0-9]{5}-[0-9]{3}"
+                required
+              />
+              <label for="cep">CEP <span class="obrigatorio">*</span></label>
+              <p class="invalid-feedback">Campo inválido!</p>
+            </div>
+            <div class="form-floating input-oculto">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="uf"
+                name="uf"
+                placeholder="Estado"
+                disabled
+              />
+              <label for="uf">Estado</label>
+            </div>
+            <div class="form-floating input-oculto">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="bairro"
+                name="bairro"
+                placeholder="Bairro"
+                disabled
+              />
+              <label for="bairro">Bairro</label>
+            </div>
+            <div class="form-floating input-oculto">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="localidade"
+                name="localidade"
+                placeholder="Cidade"
+                disabled
+              />
+              <label for="localidade">Cidade</label>
+            </div>
+            <div class="form-floating input-oculto">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="logradouro"
+                name="logradouro"
+                placeholder="Logradouro"
+                disabled
+              />
+              <label for="logradouro">Logradouro</label>
+            </div>
+            <div class="form-floating input-oculto">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="complemento"
+                name="complemento"
+                placeholder="Complemento"
+                maxlength="20"
+                pattern="^(?![.,\s])[\wÀ-ÿ.,\s]*$"
+                required
+              />
+              <label for="complemento">Numero <span class="obrigatorio">*</span></label>
+            </div>
+            <div class="form-floating input-oculto modal-input">
+              <input
+                type="text"
+                class="form-control input-cadastro"
+                id="complementoAdicional"
+                name="complementoAdicional"
+                placeholder="Complemento"
+                maxlength="40"
+                pattern="^(?![.,\s])[\wÀ-ÿ.,\s]{0,}$"
+              />
+              <label for="complementoAdicional">Complemento</label>
+            </div>
+          </div>
+          <div class="botao-formulario">
+            <button type="submit" class="btn btn-primary estilo-botao" id="enviar-cadastro">
+              Alterar Cadastro
+            </button>
+
+            <button type="button" class="btn btn-secondary estilo-botao botao-limpar" id="pegarDados">Limpar</button>
+          </div>
+          <p id="erroCadastro"></p>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="form-anterior btn btn-secondary estilo-botao" disabled>
+          Anterior
+        </button>
+
+        <button type="button" class="btn btn-secondary botao-fechar" data-bs-dismiss="modal">
+          Fechar
+        </button>
+
+        <button type="button" class="form-proximo btn btn-secondary estilo-botao">Próximo</button>
+      </div>
+    </div>
+  </div>
+</div>

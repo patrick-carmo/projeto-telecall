@@ -17,9 +17,6 @@ const verificarAutenticacao = async (req, res, next) => {
     if (!usuario) {
       erro(403, 'usuário não encontrado!')
     }
-
-
-    req.usuario_id = id
     
     nome ? req.nomeOuLogin = nome[0].toUpperCase() + nome.slice(1).split(' ')[0] : req.nomeOuLogin = login
 

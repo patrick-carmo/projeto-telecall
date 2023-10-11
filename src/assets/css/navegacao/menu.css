@@ -1,6 +1,29 @@
 .header{
-  background-color: var(--cor-header);
+  background-color: rgba(var(--cor-header), 0.3);
   box-shadow: 1px 15px 50px rgb(0, 0, 0, 0.5);
+  position: fixed;
+  height: 140px;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.menu-fixo{
+  height: 80px;
+  background-color: rgba(var(--cor-header), 1);
+  z-index: 1;
+}
+
+#back-top{
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(var(--cor-bg-section), 0.5);
+  color: var(--cor-texto-menu);
+  transition: all 0.3s;
 }
 
 .loginUsuario{
@@ -23,7 +46,7 @@
   align-items: center;
   justify-content: space-evenly;
   gap: 100px;
-  height: 90px;
+  height: 100%;
   font-weight: 500;
   font-size: 0.9rem;
 }
