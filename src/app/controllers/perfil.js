@@ -1,20 +1,21 @@
 const pool = require('../config/conexao')
-const bcrypt = require('bcrypt')
-const consultarUsuarios = require('../util/consultar')
-const regex = require('../util/regex')
-const erro = require('../util/erro')
 const jwt = require('jsonwebtoken')
 
-const dadosUsuario = async (req, res) => {
+const perfilUsuario = async (req, res) => {
   const token = req.cookies.token
   const { id } = jwt.verify(token, process.env.senha)
 
   try {
-    const query = `select * from usuario where id = $1`
+    const query = `
+      select u.*, e.*
+      from usuario AS u
+      left join usuario_endereco as ue on u.id = ue.usuario_id
+      left join endereco as e on ue.endereco_id = e.id
+      where u.id = $1;
+    `
     const values = [id]
 
     const {rows} = await pool.query(query, values)
-
     const userData = {
       ...rows[0]
     }
@@ -24,4 +25,4 @@ const dadosUsuario = async (req, res) => {
   }
 }
 
-module.exports = dadosUsuario
+module.exports = perfilUsuario

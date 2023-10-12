@@ -8,9 +8,8 @@ import { botaoTeste, verificarLogin } from './login/verificarLogin.js'
 botaoTeste()
 verificarLogin()
 
-import verificarCadastro from './login/verificarCadastro.js'
+import verificarCadastro from './login/verificarOperacao.js'
 verificarCadastro()
-
 
 import erro from './erro/erro.js'
 erro()

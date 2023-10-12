@@ -201,8 +201,8 @@ function cadastro() {
               cep.classList.add('is-invalid')
               ocultos.forEach((campo) => {
                 campo.style.display = 'none'
-                formEndereco.style.gridTemplateColumns = '1fr'
               })
+              formEndereco.style.gridTemplateColumns = '1fr'
             } else {
               showData(data)
               ocultos.forEach((campo) => {
@@ -264,7 +264,12 @@ function cadastro() {
     })
 
     if (!temErro) {
-      const elementos = ['uf', 'bairro', 'localidade', 'logradouro', 'cpf']
+      const tipo = document.querySelector('.tipo')
+      const elementos = ['uf', 'bairro', 'localidade', 'logradouro']
+      if (tipo.value === 'cadastrar') {
+        elementos.push('cpf')
+      }
+
       function habilitarCampos(valor) {
         elementos.forEach((elementoId) => {
           const elemento = document.getElementById(elementoId)
@@ -273,6 +278,11 @@ function cadastro() {
       }
       habilitarCampos(false)
       habilitarCampos(true)
+
+      if (tipo.value === 'cadastrar') {
+        const cpf = document.getElementById('cpf')
+        cpf.disabled = false
+      }
     }
   })
 

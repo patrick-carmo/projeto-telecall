@@ -7,12 +7,13 @@
       </div>
       <div class="modal-body">
         <form
-          action="/entrar"
+          action="/alterar"
           method="post"
           class="needs-validation formulario-principal"
-          id="formulario-cadastro"
+          id="formulario-alterar"
           novalidate
         >
+          <input type="hidden" name="tipo" class="tipo" value="alterar" />
           <div class="cadastro">
             <div class="form-floating modal-input">
               <input
@@ -111,7 +112,6 @@
                 minlength="5"
                 maxlength="6"
                 pattern="^[A-Za-z0-9]{5,6}$"
-                disabled
               />
               <label for="login">Login</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -238,7 +238,13 @@
               Alterar Cadastro
             </button>
 
-            <button type="button" class="btn btn-secondary estilo-botao botao-limpar" id="pegarDados">Limpar</button>
+            <button
+              type="button"
+              class="btn btn-secondary estilo-botao botao-limpar"
+              id="pegarDados"
+            >
+              Limpar
+            </button>
           </div>
           <p id="erroCadastro"></p>
         </form>
@@ -246,14 +252,14 @@
 
       <div class="modal-footer">
         <button type="button" class="form-anterior btn btn-secondary estilo-botao" disabled>
-          Anterior
+          Cadastro
         </button>
 
         <button type="button" class="btn btn-secondary botao-fechar" data-bs-dismiss="modal">
           Fechar
         </button>
 
-        <button type="button" class="form-proximo btn btn-secondary estilo-botao">Próximo</button>
+        <button type="button" class="form-proximo btn btn-secondary estilo-botao">Endereço</button>
       </div>
     </div>
   </div>

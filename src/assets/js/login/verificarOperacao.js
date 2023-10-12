@@ -1,10 +1,21 @@
 import { realizarSolicitacao } from '../axios.js'
 
 export default function verificarCadastro() {
-  const formulario = document.getElementById('formulario-cadastro')
+  const formularioCadastro = document.getElementById('formulario-cadastro')
   const erroCadastro = document.getElementById('erroCadastro')
+  const modal = document.querySelector('.modal-content')
 
-  formulario.addEventListener('submit', cadastrar)
+  const formularioAlterar = document.getElementById('formulario-alterar')
+
+  const tipo = document.querySelector('.tipo')
+
+  if (formularioCadastro) {
+    formularioCadastro.addEventListener('submit', cadastrar)
+  }
+
+  if (formularioAlterar) {
+    formularioAlterar.addEventListener('submit', cadastrar)
+  }
 
   async function cadastrar(e) {
     e.preventDefault()
@@ -16,6 +27,7 @@ export default function verificarCadastro() {
     campos.forEach((campo) => {
       if (!campo.checkValidity()) {
         campo.classList.add('is-invalid')
+        campo.classList.remove('is-valid')
         camposValidos = false
         return
       } else {
@@ -56,14 +68,36 @@ export default function verificarCadastro() {
     try {
       obterCampo(ids)
 
-      
       if (camposValidos) {
-        await realizarSolicitacao('/cadastrar', valores)
-        window.location.href = '/'
+        if (tipo.value === 'cadastrar') {
+          await realizarSolicitacao('/cadastrar', valores)
+          window.location.href = '/'
+          return
+        }
+        await realizarSolicitacao('/alterar', valores)
+
+        if (tipo.value === 'alterar') {
+          const limpar = document.getElementById('pegarDados')
+          limpar.click()
+
+          modal.style.border = '2px solid green'
+          erroCadastro.style.display = 'block'
+          erroCadastro.style.color = 'green'
+          erroCadastro.textContent = 'Cadastro alterado com sucesso!'
+          setTimeout(() => {
+            modal.style.border = ''
+            erroCadastro.style.display = 'none'
+            erroCadastro.textContent = ''
+          }, 5000)
+        }
       }
     } catch (error) {
+      console.log('aqui')
       erroCadastro.style.display = 'block'
-      const mensagem = error.response.data.mensagem.replaceAll(',', ', ').trim()
+      let mensagem = error.response.data.mensagem
+        ? error.response.data.mensagem.replaceAll(',', ', ').trim()
+        : error.message
+
       const dados = error.response.data.dados
 
       campos.forEach((campo) => {
@@ -78,9 +112,11 @@ export default function verificarCadastro() {
         }
       })
 
+      modal.style.border = '2px solid red'
       erroCadastro.textContent = mensagem
-      console.error(error)
+      console.error(mensagem)
       setTimeout(() => {
+        modal.style.border = ''
         erroCadastro.style.display = 'none'
         erroCadastro.textContent = ''
       }, 5000)
