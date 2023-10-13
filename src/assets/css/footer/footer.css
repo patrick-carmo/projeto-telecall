@@ -3,7 +3,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 20px;
 }
 
 .footer-logo{
@@ -11,9 +10,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  gap: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  gap: 20px;
   border-top: 1px solid var(--cor-texto-p);
   border-bottom: 1px solid var(--cor-texto-p);
 }
@@ -25,6 +22,7 @@ footer {
 .footer-link {
   padding-top: 30px;
   width: 100%;
+  gap: 20px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -39,4 +37,14 @@ footer {
 .footer-flex a{
   height: 40px;
   width: 40px;
+}
+
+.footer-logo, .footer-link{
+  padding: 20px;
+}
+
+@media(max-width: 600px){
+  .footer-flex{
+    gap: 10px;
+  }
 }

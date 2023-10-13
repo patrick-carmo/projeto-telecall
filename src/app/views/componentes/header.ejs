@@ -13,44 +13,42 @@
           <li><a href="">Wi-Fi</a></li>
         </ul>
       </li>
+      <li><a href="javascript:void(0)">Telefonia</a></li>
       <li><a href="javascript:void(0)">Rede e Infraestrutura</a></li>
-      <li><a href="javascript:void(0)">Outras soluções</a></li>
-      <div class="cliente">
-        <li data-dropdown>
-          <a href="javascript:void(0)">Acessibilidade</a>
-          <ul class="dropdown">
-            <li class="drop-flex">
-              <input type="checkbox" name="dark" id="dark" />
-              <label for="dark" class="label-dark">
-                <i class="bi bi-sun"></i>
-                <i class="bi bi-moon"></i>
-              </label>
-              <button class="botao-acc" id="diminuir">A-</button>
-              <button class="botao-acc" id="aumentar">A+</button>
-              <button class="botao-acc" id="original">R</button>
-            </li>
-          </ul>
-        </li>
-        <li data-dropdown>
-          <a href="javascript:void(0)">Olá, <span class="loginUsuario"> <%= nomeOuLogin %>!</span></a>
-          <ul class="dropdown">
-            <% if (nomeOuLogin !== 'Teste') { %>
-            <li>
-              <a
+      <li data-dropdown class="acc">
+        <a href="javascript:void(0)">Acessibilidade</a>
+        <ul class="dropdown">
+          <li class="drop-flex">
+            <input type="checkbox" name="dark" id="dark" />
+            <label for="dark" class="label-dark">
+              <i class="bi bi-sun"></i>
+              <i class="bi bi-moon"></i>
+            </label>
+            <button class="botao-acc" id="diminuir">A-</button>
+            <button class="botao-acc" id="aumentar">A+</button>
+            <button class="botao-acc" id="original">R</button>
+          </li>
+        </ul>
+      </li>
+      <li data-dropdown>
+        <a href="javascript:void(0)">Olá, <span class="loginUsuario"> <%= nomeOuLogin %>!</span></a>
+        <ul class="dropdown">
+          <% if (nomeOuLogin !== 'Teste') { %>
+          <li>
+            <a
               href="javascript:void(0)"
-                class="botao-cadastro"
-                data-bs-toggle="modal"
-                data-bs-target="#modal"
-                id="dadosUsuario"
-              >
-                Alterar Cadastro
-              </a>
-            </li>
-            <% } %>
-            <li><a href="/logout">Sair</a></li>
-          </ul>
-        </li>
-      </div>
+              class="botao-cadastro"
+              data-bs-toggle="modal"
+              data-bs-target="#modal"
+              id="dadosUsuario"
+            >
+              Alterar Cadastro
+            </a>
+          </li>
+          <% } %>
+          <li><a href="/logout">Sair</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </header>
