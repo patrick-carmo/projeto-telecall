@@ -7,10 +7,6 @@
   transition: all 0.3s;
 }
 
-.acc{
-  margin-left: 50px;
-}
-
 .menu-fixo{
   height: 80px;
   background-color: rgba(var(--cor-header), 1);
@@ -33,6 +29,11 @@
 .loginUsuario{
   border-bottom: 2px solid var(--cor-header-after);
   border-radius: 5px;
+}
+
+.cliente{  
+  display: flex;
+  margin-left: 50px;
 }
 
 .logo-principal{

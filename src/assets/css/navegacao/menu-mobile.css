@@ -25,12 +25,10 @@
 
   [data-menu='button'] {
     display: flex;
-    background: var(--cor-botao);
+    background: var(--cor-bg-s);
     border: none;
-    border-top: 2px solid var(--cor-header-after);
-    border-left: 2px solid var(--cor-header-after);
     padding: 0.5rem 1rem;
-    border-radius: 10px 20px;
+    border-radius: 10px;
     font-family: 'Poppins';
     font-weight: bold;
     color: var(--cor-texto-menu);
@@ -39,12 +37,6 @@
     position: absolute;
     left: 100px;
     z-index: 3;
-    transition: all .3s;
-  }
-
-  [data-menu='button']:hover {
-    background: var(--cor-bg-s);
-    transform: scale(1.1);
   }
 
   [data-menu='button']::before {
@@ -70,10 +62,9 @@
     z-index: 2;
     top: 0;
     left: 100px;
-    padding: 60px 10px 20px 10px;
+    padding: 60px 0 20px 0;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
     border-radius: 0 0 10px 10px;
-    transition: all .3s;
   }
 
   [data-menu='list'].active {

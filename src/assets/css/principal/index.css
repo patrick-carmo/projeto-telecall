@@ -11,13 +11,14 @@
   border-radius: 10px 20px;
   border-top: 2px solid var(--cor-header-after);
   border-bottom: 2px solid var(--cor-header-after);
+  height: 40px;
   cursor: pointer;
   background-color: var(--cor-botao);
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--cor-texto-menu);
   transition: 0.3s linear;
-  width: 130px;
-  height: 40px;
+  width: 150px;
+  height: 50px;
 }
 
 .section-titulo {
@@ -51,7 +52,6 @@
   justify-content: center;
   height: 500px;
   background-color: rgba(var(--cor-bg-section), 0.3);
-  text-align: center;
 }
 
 .section:nth-child(3) {
@@ -60,17 +60,15 @@
 
 .container-section {
   max-width: 1200px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'left rigth';
+  display: flex;
   gap: 100px;
   justify-content: center;
   align-items: center;
   padding: 0px 40px;
 }
 
-.nossos-servicos {
-  grid-area: left;
+.section:nth-child(3) .container-section{
+  flex-direction:row-reverse;
 }
 
 .container-section h2 {
@@ -89,7 +87,7 @@
   max-width: 450px;
 }
 
-.nossos-servicos {
+.nossos-servicos{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -103,91 +101,22 @@
   max-width: 40ch;
 }
 
-.nossos-servicos h2,
-h3 {
+.nossos-servicos h2, h3{
   background: var(--cor-subtitulo-section);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.nossos-servicos h2 {
+.nossos-servicos h2{
   grid-column: 1/-1;
   justify-self: center;
   margin-bottom: 20px;
 }
 
-.nossos-servicos button {
+.nossos-servicos button{
   grid-column: 1/-1;
   justify-self: center;
   margin-top: 20px;
   border-color: rgb(var(--cor-header));
-}
-
-.nossos-servicos .conteudo-servicos:nth-child(4) {
-  grid-column: 1/-1;
-}
-
-.section-titulo :nth-child(2),
-.section-titulo :nth-child(2),
-.section-titulo :nth-child(3) {
-  margin: 0 30px;
-}
-
-@media (max-width: 1200px) {
-  .acc {
-    margin-left: 0px;
-  }
-  .nav-principal,
-  .container-section {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .section {
-    height: auto;
-  }
-  .container-section {
-    grid-template-columns: 1fr;
-    grid-template-areas: initial;
-    place-items: center;
-    margin: 30px 0px;
-  }
-  .nossos-servicos {
-    grid-area: initial;
-  }
-}
-
-@media (max-width: 800px) {
-  .section-titulo h1 {
-    font-size: 3.5rem;
-  }
-  .section img,
-  .section:nth-child(3) img {
-    max-width: 300px;
-  }
-  .section h2 {
-    font-size: 2rem;
-  }
-  .section h3 {
-    font-size: 1.5rem;
-  }
-  .conteudo {
-    gap: 20px;
-  }
-  .container-section {
-    padding: 0 20px;
-  }
-  #back-top {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media (max-width: 400px) {
-  .section img,
-  .section:nth-child(3) img {
-    max-width: 200px;
-  }
 }
