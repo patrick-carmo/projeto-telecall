@@ -91,6 +91,12 @@
   }
 }
 
+@media(max-width: 1000px){
+  [data-menu='list']{
+    padding-top: 90px;
+  }
+}
+
 @media (max-width: 600px) {
   [data-menu='list'] {
     left: 0px;
