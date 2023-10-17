@@ -1,8 +1,5 @@
 const pool = require('../config/conexao')
 const bcrypt = require('bcrypt')
-const consultarUsuarios = require('../util/consultar')
-const regex = require('../util/regex')
-const erro = require('../util/erro')
 const jwt = require('jsonwebtoken')
 const operacao = require('../util/operacao')
 

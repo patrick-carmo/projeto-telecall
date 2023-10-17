@@ -15,8 +15,8 @@
 .drop-flex {
   padding: 10px;
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  /* flex-wrap: wrap; */
+  gap: 5px;
   align-items: center;
   justify-content: space-around;
 }

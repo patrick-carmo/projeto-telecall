@@ -12,6 +12,10 @@ const controle = {
   login: (req, res) => {
     res.sendFile(path.join(__dirname, '../views/login.html'))
   },
+  internet: (req, res) => {
+    const nomeOuLogin = req.nomeOuLogin
+    res.status(200).render('internet', { nomeOuLogin })
+  },
   autenticar: async (req, res) => {
     const { login, senha } = req.body
     try {

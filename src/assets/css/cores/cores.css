@@ -1,7 +1,7 @@
 :root {
   --cor-bg: #fff;
   --cor-bg-s: #171717;
-  --cor-bg-section: 179,191,231;
+  --cor-bg-section: 179, 191, 231;
 
   --cor-input-bg: initial;
   --cor-modal-bg: #fff;
@@ -12,8 +12,12 @@
   --cor-erro: #dc3545;
   --cor-label: rgb(160, 160, 160);
 
-  --cor-subtitulo-section: linear-gradient(to top right, #1a86c9, #00589d);
+  --cor-subtitulo-section: linear-gradient(to top left, #ff0000, #c13535, #1a86c9);
+  --cor-subtitulo-section-2: linear-gradient(to top right, #0080ff, #338be2, #ff3333);
+
   --cor-header: 1, 112, 185;
+  --cor-header-2: 102, 0, 0;
+
   --cor-header-after: #ca1c2a;
   --cor-form-disabled: #e9ecef;
 
