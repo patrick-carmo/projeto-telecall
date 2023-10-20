@@ -24,17 +24,35 @@ function buscarDados() {
       const idsFiltrados = ids.filter(
         (id) => !['senha', 'senha2', 'complementoAdicional', 'cep'].includes(id)
       )
+
+      function preencherInput(campo, id, alternativo) {
+        campo.focus()
+        campo.value = alternativo
+          ? alternativo === 'data_nascimento'
+            ? formatarData(userData.nascimento)
+            : userData[alternativo]
+          : userData[id] 
+        campo.blur()
+      }
+
       idsFiltrados.forEach((id) => {
         const campo = document.getElementById(id)
         if (id === 'nomeMaterno') {
-          campo.value = userData.nome_materno
+          preencherInput(campo, 'nomeMaterno', 'nome_materno')
           return
         }
         if (id === 'nascimento') {
-          campo.value = formatarData(userData.nascimento)
+          preencherInput(campo, 'nascimento', 'data_nascimento')
           return
         }
-        campo.value = userData[id]
+        if (id === 'cpf') {
+          campo.disabled = false
+          preencherInput(campo, 'cpf')
+          campo.disabled = true
+          return
+        }
+
+        preencherInput(campo, id)
       })
     })
     .catch((error) => {

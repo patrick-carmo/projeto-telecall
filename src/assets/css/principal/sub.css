@@ -1,0 +1,25 @@
+.descricao-produto h2{
+  margin-bottom: 30px;
+}
+
+.section:nth-child(odd) .descricao-produto h2, .section:nth-child(odd) .descricao-produto p{
+  text-align: right;
+}
+
+.container-conteudo h2{
+  font-size: 2rem;
+}
+
+.container-conteudo h3{
+  font-size: 1.5rem;
+}
+
+.descricao-produto p{
+  margin: 20px 0;
+}
+
+@media(max-width: 1000px){
+  .descricao-produto{
+    text-align: center;
+  }
+}
