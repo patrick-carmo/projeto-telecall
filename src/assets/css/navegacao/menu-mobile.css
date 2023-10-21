@@ -112,7 +112,7 @@
     padding: 0.2rem 0.5rem
   }
   [data-menu='button']{
-    font-size: 0.8rem;
+    font-size: var(--fs-xxxp);
   }
   .logo-principal {
     right: 20px;

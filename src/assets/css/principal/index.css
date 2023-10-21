@@ -13,7 +13,7 @@
   border-bottom: 2px solid var(--cor-header-after);
   cursor: pointer;
   background-color: var(--cor-botao);
-  font-size: 1rem;
+  font-size: var(--fs-m);
   color: var(--cor-texto-menu);
   transition: 0.3s linear;
   padding: 5px 10px;
@@ -36,13 +36,13 @@
 
 .titulo {
   color: var(--cor-texto-menu);
-  font-size: 5rem;
+  font-size: var(--fs-j);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .section-titulo p {
   color: var(--cor-texto-drop);
-  font-size: 1.5rem;
+  font-size: var(--fs-g);
 }
 
 .section {
@@ -81,7 +81,7 @@
 }
 
 .container-section h2 {
-  font-size: 2.5rem;
+  font-size: var(--fs-xxg);
   color: var(--cor-texto-p);
 }
 
@@ -158,16 +158,16 @@
 
 @media (max-width: 800px) {
   .section-titulo h1 {
-    font-size: 3.5rem;
+    font-size: var(--fs-h);
   }
   .section img {
     max-width: 300px;
   }
   .section h2 {
-    font-size: 2rem;
+    font-size: var(--fs-xg)
   }
   .section h3 {
-    font-size: 1.5rem;
+    font-size: var(--fs-g);
   }
   .conteudo {
     gap: 20px;
@@ -183,22 +183,22 @@
 
 @media (max-width: 600px) {
   .section h2 {
-    font-size: 1.8rem;
+    font-size: var(--fs-xp);
   }
   .section h3 {
-    font-size: 1.2rem;
+    font-size: var(--fs-p);
   }
   .section p {
-    font-size: 0.9rem;
+    font-size: var(--fs-xxp);
   }
   .botao-principal {
-    font-size: 0.8rem;
+    font-size: var(--fs-xxxp);
   }
   .section-titulo h1 {
-    font-size: 3rem;
+    font-size: var(--fs-xxxg);
   }
   .section-titulo p {
-    font-size: 1rem;
+    font-size: var(--fs-m);
   }
   .container-conteudo button {
     margin-top: 10px;

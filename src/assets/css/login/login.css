@@ -77,7 +77,7 @@ body {
 }
 
 .login-titulo h1{
-  font-size: 2.5rem;
+  font-size: var(--fs-xxg);
   color: var(--cor-titulo);
 }
 
@@ -140,7 +140,7 @@ body {
   }
 
   .login-titulo{
-    font-size: 1.5rem;
+    font-size: var(--fs-g);
     padding-bottom: 10px;
   }
 

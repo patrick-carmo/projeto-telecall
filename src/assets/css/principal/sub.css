@@ -1,25 +1,48 @@
-.descricao-produto h2{
+.sub-descricao-produto h2{
   margin-bottom: 30px;
 }
 
-.section:nth-child(odd) .descricao-produto h2, .section:nth-child(odd) .descricao-produto p{
+.section:nth-child(odd) .sub-descricao-produto h2, .section:nth-child(odd) .sub-descricao-produto p{
   text-align: right;
 }
 
-.container-conteudo h2{
-  font-size: 2rem;
+.sub-conteudo h2{
+  font-size: var(--fs-xg);
 }
 
-.container-conteudo h3{
-  font-size: 1.5rem;
+.sub-conteudo h3{
+  font-size: var(--fs-g);
 }
 
-.descricao-produto p{
+.sub-descricao-produto p{
   margin: 20px 0;
 }
 
 @media(max-width: 1000px){
-  .descricao-produto{
+  .section:nth-child(odd) .sub-descricao-produto h2, .section:nth-child(odd) .sub-descricao-produto p{
     text-align: center;
+  }
+  .sub-descricao-produto{
+    text-align: center;
+  }
+}
+
+@media (max-width: 800px){
+  .sub-conteudo h2{
+    font-size: var(--fs-xp);
+  }
+
+  .sub-conteudo h3{
+    font-size: var(--fs-p);
+  }
+}
+
+@media (max-width: 600px){
+  .sub-conteudo h2{
+    font-size: var(--fs-g);
+  }
+
+  .sub-conteudo h3{
+    font-size: var(--fs-p);
   }
 }
