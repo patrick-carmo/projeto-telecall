@@ -22,67 +22,35 @@ export default function dark() {
       if (logoLogin) {
         logoLogin.src = '/img/telecall-logo-dark.svg'
       }
+
       if (seta) {
         seta.src = '/img/back-top-dark.svg'
       }
-      localStorage.setItem('dark', 1)
-      return
-    }
-
-    if (logoMenu) {
-      logoMenu.src = '/img/telecall-logo-header-blue.svg'
-    }
-
-    if (logoLogin) {
-      logoLogin.src = '/img/telecall-logo.svg'
-    }
-
-    if (facebookIcon && instagramIcon && linkedinIcon) {
-      facebookIcon.src = '/img/facebook.svg'
-      instagramIcon.src = '/img/instagram.svg'
-      linkedinIcon.src = '/img/linkedin.svg'
-    }
-
-    if (seta) {
-      seta.src = '/img/back-top.svg'
     }
   }
 
   function carregarTema() {
-    const darkMode = localStorage.getItem('dark')
-
-    verificarModo()
-
-    if (darkMode) {
-      document.body.classList.toggle('dark-mode')
-
-      if (logoMenu) {
-        logoMenu.src = '/img/telecall-logo-header-red.svg'
-      }
-
-      if (logoLogin) {
-        logoLogin.src = '/img/telecall-logo-dark.svg'
-      }
-
-      if (facebookIcon && instagramIcon && linkedinIcon) {
-        facebookIcon.src = '/img/facebook-dark.svg'
-        instagramIcon.src = '/img/instagram-dark.svg'
-        linkedinIcon.src = '/img/linkedin-dark.svg'
-      }
-
-      if (seta) {
-        seta.src = '/img/back-top-dark.svg'
-      }
+    const configuracoesSalvas = JSON.parse(localStorage.getItem('configuracoesUsuario')) || {}
+    if (configuracoesSalvas.modoEscuro) {
+      document.body.classList.add('dark-mode')
+      verificarModo()
     }
+  }
+
+  function salvarConfiguracoes(configuracoes) {
+    localStorage.setItem('configuracoesUsuario', JSON.stringify(configuracoes))
   }
 
   carregarTema()
 
   modo.addEventListener('change', function () {
+    const configuracoesUsuario = {
+      ...(JSON.parse(localStorage.getItem('configuracoesUsuario')) || {}),
+      modoEscuro: !document.body.classList.contains('dark-mode'),
+    }
+
+    salvarConfiguracoes(configuracoesUsuario)
     document.body.classList.toggle('dark-mode')
-
-    localStorage.removeItem('dark')
-
     verificarModo()
   })
 }

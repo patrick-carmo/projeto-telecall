@@ -1,3 +1,4 @@
+// Definir as expressões regulares
 const nome = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$/
 const login = /^[A-Za-z0-9]{5,}$/
 const nomeMaterno = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$/
@@ -9,7 +10,8 @@ const cep = /^\d{5}-\d{3}$/
 const complemento = /^(?![.,\s])[\wÀ-ÿ.,\s]*$/
 const complementoAdicional = /^(?![.,\s])[\wÀ-ÿ.,\s]{0,}$/
 
-module.exports = {
+// Criar um objeto com os campos e as expressões regulares
+const regex = {
   nome,
   login,
   nomeMaterno,
@@ -21,3 +23,6 @@ module.exports = {
   complemento,
   complementoAdicional,
 }
+
+// Exportar o objeto de regex usando a sintaxe de exportação default
+export default regex

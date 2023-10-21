@@ -1,16 +1,11 @@
-const { Pool } = require('pg')
-require('dotenv').config()
 
-const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL + '?sslmode=require',
-})
+import knex from 'knex'
 
-// const pool = new Pool({
-//   user: process.env.user,
-//   host: process.env.host,
-//   database: process.env.database,
-//   password: process.env.password,
-//   port: process.env.port,
-// })
+const config = {
+  client: 'pg',
+  connection: process.env.POSTGRES_URL,
+}
 
-module.exports = pool
+const db = knex(config)
+
+export default db
