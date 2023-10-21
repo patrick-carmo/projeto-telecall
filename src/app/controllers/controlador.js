@@ -1,5 +1,5 @@
 const path = require('path')
-const pool = require('../config/conexao')
+const knex = require('../config/conexao')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const erro = require('../util/erro')
@@ -19,34 +19,22 @@ const controle = {
   autenticar: async (req, res) => {
     const { login, senha } = req.body
     try {
-      const query = `select * from usuario where login = $1`
-      const values = [login]
+      const usuario = await knex('usuario').where('login', login).first()
 
-      const resultado = await pool.query(query, values)
-
-      if (resultado.rowCount === 0) {
+      if (!usuario) {
         erro(400, 'Login incorreto!')
       }
 
-      const confirmarSenha = await bcrypt.compare(senha, resultado.rows[0].senha)
+      const confirmarSenha = await bcrypt.compare(senha, usuario.senha)
 
       if (!confirmarSenha) {
         erro(400, 'Senha incorreta!')
       }
 
-      const token = jwt.sign(
-        { id: resultado.rows[0].id, nome: resultado.rows[0].nome, login: resultado.rows[0].login },
-        process.env.senha,
-        {
-          expiresIn: '30d',
-        }
-      )
-
-      res.cookie('token', token, {
-        httpOnly: true,
-        secure: true,
+      const token = jwt.sign({ id: usuario.id }, process.env.senha, {
+        expiresIn: '30d',
       })
-
+      req.session.token = token
       res.status(200).json({ mensagem: 'Login efetuado com sucesso!' })
     } catch (e) {
       res.status(e.status || 500).json({ mensagem: e.message })
@@ -54,7 +42,8 @@ const controle = {
   },
 
   logout: (req, res) => {
-    res.clearCookie('token')
+    req.session.destroy()
+    res.clearCookie('connect.sid')
     res.redirect('/login')
   },
 }

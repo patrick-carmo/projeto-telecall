@@ -3,9 +3,13 @@ cadastro()
 
 function buscarDados() {
   axios
-    .get('/perfil')
+    .get('/perfil',{
+      params: {
+        acesso: 'botao'
+      }
+    })
     .then((response) => {
-      const userData = response.data
+      const dados = response.data
 
       function formatarData(data) {
         const dataFormatada = new Date(data).toISOString().split('T')[0]
@@ -29,9 +33,9 @@ function buscarDados() {
         campo.focus()
         campo.value = alternativo
           ? alternativo === 'data_nascimento'
-            ? formatarData(userData.nascimento)
-            : userData[alternativo]
-          : userData[id] 
+            ? formatarData(dados.nascimento)
+            : dados[alternativo]
+          : dados[id] 
         campo.blur()
       }
 
