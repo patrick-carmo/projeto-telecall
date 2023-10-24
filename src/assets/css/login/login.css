@@ -17,7 +17,7 @@ body {
   word-wrap: break-word;
 }
 
-.fundo-login{
+.fundo-login {
   background-image: url(../../img/pngwing.com\ \(4\).png);
   background-size: cover;
   background-position: center;
@@ -25,7 +25,7 @@ body {
   transition: background-image 0.5s ease;
 }
 
-.dark-mode .fundo-login{
+.dark-mode .fundo-login {
   background-image: url(../../img/pngwing.com\ \(2\).png);
   background-size: cover;
   background-position: center;
@@ -37,7 +37,7 @@ body {
   padding: 20px;
   gap: 20px;
   width: 100%;
-  justify-self: center;
+  justify-items: center;
 
   background-color: var(--cor-modal-bg);
   border-radius: 20px;
@@ -68,24 +68,23 @@ body {
   align-items: center;
 }
 
-
-.login-titulo{
+.login-titulo {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding-bottom: 15px;
+  gap: 15px;
 }
 
-.login-titulo h1{
+.login-titulo h1 {
   font-size: var(--fs-xxg);
   color: var(--cor-titulo);
 }
 
-.modo-escuro{
+.modo-escuro {
   display: flex;
   flex-direction: column;
 }
-
 
 .login-campo form {
   display: grid;
@@ -111,37 +110,52 @@ body {
   background-color: var(--cor-s2);
 }
 
-.estilo-botao{
+.estilo-botao {
   border-radius: 10px;
 }
 
 .botao-cadastro {
   place-self: center center;
-  padding: 5px;
   color: var(--cor-p1);
   border: none;
-  background-color: transparent
+  background-color: transparent;
 }
 
-.botao-formulario{
+.botao-formulario {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 5px;
 }
 
+.div-teste {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 @media (max-width: 550px) {
-  .login-container {
-    padding: 20px;
+
+  .login-campo{
+    gap: 10px;
   }
 
-  .login-container img{
+  .login-container {
+    padding: 10px;
+  }
+
+  .login-container img {
     max-width: 250px;
   }
 
-  .login-titulo{
-    font-size: var(--fs-g);
+  .login-titulo h1 {
+    font-size: var(--fs-xg);
     padding-bottom: 10px;
   }
+}
 
+@media (max-width: 310px) {
+  .login-container img {
+    max-width: 200px;
+  }
 }
