@@ -1,7 +1,7 @@
-const knex = require('../config/conexao')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const operacao = require('../util/operacao')
+import knex from '../config/conexao.js'
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import operacao from '../util/operacao.js'
 
 const usuario = {
   cadastrar: async (req, res) => {
@@ -61,7 +61,10 @@ const usuario = {
           }
         )
 
-        req.session.token = token
+        res.cookie('token', token, {
+          httpOnly: true,
+          secure: true,
+        })
       })
 
       res.status(203).json({ mensagem: 'Cadastrado com sucesso!' })
@@ -73,7 +76,7 @@ const usuario = {
 
   alterar: async (req, res) => {
     const dados = req.body
-    const token = req.session.token
+    const token = req.cookies.token
     const { id } = jwt.verify(token, process.env.senha)
     const erros = []
 
@@ -122,4 +125,4 @@ const usuario = {
   },
 }
 
-module.exports = usuario
+export default usuario

@@ -1,6 +1,6 @@
-const consultarUsuarios = require('../util/consultar')
-const regex = require('../util/regex')
-const erro = require('../util/erro')
+import consultarUsuarios from '../util/consultar.js'
+import regex from '../util/regex.js'
+import erro from '../util/erro.js'
 
 async function operacao(dados, id_usuario) {
   const erros = []
@@ -42,7 +42,6 @@ async function operacao(dados, id_usuario) {
     }
     const dadosDaConsulta = await consultarUsuarios(filtros, id_usuario)
 
-    
     const dadosIguais = []
 
     for (const chave in filtros) {
@@ -60,8 +59,8 @@ async function operacao(dados, id_usuario) {
       erro(409, `Dados já cadastrados por outro usuario: ${dadosIguais}`)
     }
   } catch (error) {
-    return { erros, error}
+    return { erros, error }
   }
 }
 
-module.exports = operacao
+export default operacao

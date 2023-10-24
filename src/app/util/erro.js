@@ -4,4 +4,4 @@ const erro = (status, mensagem) => {
   throw erro
 }
 
-module.exports = erro
+export default erro

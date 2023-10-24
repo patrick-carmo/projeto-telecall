@@ -1,4 +1,4 @@
-const knex = require('../config/conexao')
+import knex from '../config/conexao.js'
 
 async function consultarUsuarios(filtros, idUsuario) {
   try {
@@ -21,4 +21,4 @@ async function consultarUsuarios(filtros, idUsuario) {
   }
 }
 
-module.exports = consultarUsuarios
+export default consultarUsuarios

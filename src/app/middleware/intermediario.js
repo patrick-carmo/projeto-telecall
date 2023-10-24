@@ -1,9 +1,9 @@
-const jwt = require('jsonwebtoken')
-const knex = require('../config/conexao')
-const erro = require('../util/erro')
+import jwt from 'jsonwebtoken'
+import knex from '../config/conexao.js'
+import erro from '../util/erro.js'
 
 const verificarAutenticacao = async (req, res, next) => {
-  const token = req.session.token
+  const token = req.cookies.token
 
   try {
     if (!token) {
@@ -13,7 +13,6 @@ const verificarAutenticacao = async (req, res, next) => {
     const { id } = jwt.verify(token, process.env.senha)
 
     const usuario = await knex('usuario').where('id', id).first()
-
 
     if (!usuario) {
       erro(403, 'usuário não encontrado!')
@@ -29,16 +28,13 @@ const verificarAutenticacao = async (req, res, next) => {
   } catch (error) {
     if (error instanceof jwt.TokenExpiredError) {
       res.cookie('sessao_expirada', 'Sessão expirada!')
-      res.clearCookie('connect.sid')
-      req.session.destroy()
+      res.clearCookie('token')
       return res.status(401).redirect('/login')
     }
 
     res.clearCookie('token')
-    res.clearCookie('connect.sid')
-    req.session.destroy()
     return res.status(error.status || 500).redirect('/login')
   }
 }
 
-module.exports = verificarAutenticacao
+export default verificarAutenticacao

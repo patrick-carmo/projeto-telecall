@@ -1,8 +1,12 @@
-const path = require('path')
-const knex = require('../config/conexao')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const erro = require('../util/erro')
+import path from 'path'
+import { fileURLToPath } from 'url'
+import knex from '../config/conexao.js'
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import erro from '../util/erro.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const controle = {
   index: (req, res) => {
@@ -34,7 +38,12 @@ const controle = {
       const token = jwt.sign({ id: usuario.id }, process.env.senha, {
         expiresIn: '30d',
       })
-      req.session.token = token
+      
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: true,
+      })
+
       res.status(200).json({ mensagem: 'Login efetuado com sucesso!' })
     } catch (e) {
       res.status(e.status || 500).json({ mensagem: e.message })
@@ -42,9 +51,9 @@ const controle = {
   },
 
   logout: (req, res) => {
-    req.session.destroy()
-    res.clearCookie('connect.sid')
+    res.clearCookie('token')
     res.redirect('/login')
   },
 }
-module.exports = controle
+
+export default controle
