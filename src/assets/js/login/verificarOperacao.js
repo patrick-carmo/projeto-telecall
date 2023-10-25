@@ -87,14 +87,14 @@ export default function verificarCadastro() {
           setTimeout(() => {
             modal.style.border = ''
             erroCadastro.style.display = 'none'
+            erroCadastro.style.color = ''
             erroCadastro.textContent = ''
           }, 5000)
         }
       }
     } catch (error) {
-      console.log('aqui')
       erroCadastro.style.display = 'block'
-      let mensagem = error.response.data.mensagem
+      const mensagem = error.response.data.mensagem
         ? error.response.data.mensagem.replaceAll(',', ', ').trim()
         : error.message
 
@@ -114,7 +114,6 @@ export default function verificarCadastro() {
 
       modal.style.border = '2px solid red'
       erroCadastro.textContent = mensagem
-      console.error(mensagem)
       setTimeout(() => {
         modal.style.border = ''
         erroCadastro.style.display = 'none'

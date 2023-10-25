@@ -1,11 +1,15 @@
-const knex = require('../config/conexao')
+import knex from '../config/conexao.js'
 
 async function consultarUsuarios(filtros, idUsuario) {
   try {
     const query = knex('usuario').select('*')
 
     if (Object.keys(filtros).length > 0) {
-      query.where(filtros)
+      query.where((query)=>{
+        for (const chave in filtros) {
+          query.orWhere(chave, filtros[chave])
+        }
+      })
     }
 
     if (idUsuario) {
@@ -21,4 +25,4 @@ async function consultarUsuarios(filtros, idUsuario) {
   }
 }
 
-module.exports = consultarUsuarios
+export default consultarUsuarios

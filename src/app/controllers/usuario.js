@@ -1,7 +1,7 @@
-const knex = require('../config/conexao')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const operacao = require('../util/operacao')
+import knex from '../config/conexao.js'
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import operacao from '../util/operacao.js'
 
 const usuario = {
   cadastrar: async (req, res) => {
@@ -61,19 +61,23 @@ const usuario = {
           }
         )
 
-        req.session.token = token
+        res.cookie('token', token, {
+          httpOnly: true,
+          secure: true,
+        })
       })
 
       res.status(203).json({ mensagem: 'Cadastrado com sucesso!' })
     } catch (error) {
-      console.error('Erro no cadastro:', error.message)
-      return res.status(500).json({ mensagem: 'Erro no cadastro', dados: erros })
+      res
+        .status(error[0].error.status || 500)
+        .json({ mensagem: error[0].error.message || error.message, dados: erros[0].erros })
     }
   },
 
   alterar: async (req, res) => {
     const dados = req.body
-    const token = req.session.token
+    const token = req.cookies.token
     const { id } = jwt.verify(token, process.env.senha)
     const erros = []
 
@@ -116,10 +120,14 @@ const usuario = {
 
       res.status(203).json({ mensagem: 'Cadastro alterado com sucesso!' })
     } catch (error) {
-      console.error('Erro na alteração:', error.message)
-      return res.status(500).json({ mensagem: 'Erro na alteração', dados: erros })
+      if (erros.length > 0) {
+        return res
+          .status(error[0].error.status || 500)
+          .json({ mensagem: error[0].error.message || error.message, dados: erros[0].erros })
+      }
+      res.status(error.status || 500).json({ mensagem: error.message })
     }
   },
 }
 
-module.exports = usuario
+export default usuario

@@ -9,7 +9,7 @@ const cep = /^\d{5}-\d{3}$/
 const complemento = /^(?![.,\s])[\wÀ-ÿ.,\s]*$/
 const complementoAdicional = /^(?![.,\s])[\wÀ-ÿ.,\s]{0,}$/
 
-module.exports = {
+const regex = {
   nome,
   login,
   nomeMaterno,
@@ -21,3 +21,5 @@ module.exports = {
   complemento,
   complementoAdicional,
 }
+
+export default regex

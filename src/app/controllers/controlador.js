@@ -1,20 +1,18 @@
-const path = require('path')
-const knex = require('../config/conexao')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const erro = require('../util/erro')
+import knex from '../config/conexao.js'
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import erro from '../util/erro.js'
+import render from '../util/render.js'
 
 const controle = {
   index: (req, res) => {
-    const nomeOuLogin = req.nomeOuLogin
-    res.status(200).render('index', { nomeOuLogin })
+    render(req, res, 'index')
   },
   login: (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/login.html'))
+    render(req, res, 'login')
   },
   internet: (req, res) => {
-    const nomeOuLogin = req.nomeOuLogin
-    res.status(200).render('internet', { nomeOuLogin })
+    render(req, res, 'internet')
   },
   autenticar: async (req, res) => {
     const { login, senha } = req.body
@@ -34,7 +32,13 @@ const controle = {
       const token = jwt.sign({ id: usuario.id }, process.env.senha, {
         expiresIn: '30d',
       })
-      req.session.token = token
+
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: true,
+      })
+
       res.status(200).json({ mensagem: 'Login efetuado com sucesso!' })
     } catch (e) {
       res.status(e.status || 500).json({ mensagem: e.message })
@@ -42,9 +46,9 @@ const controle = {
   },
 
   logout: (req, res) => {
-    req.session.destroy()
-    res.clearCookie('connect.sid')
+    res.clearCookie('token')
     res.redirect('/login')
   },
 }
-module.exports = controle
+
+export default controle

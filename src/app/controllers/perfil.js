@@ -1,8 +1,9 @@
-const knex = require('../config/conexao')
-const jwt = require('jsonwebtoken')
+// Importar os módulos usando o import
+import knex from '../config/conexao.js'
+import jwt from 'jsonwebtoken'
 
 const perfilUsuario = async (req, res) => {
-  const token = req.session.token
+  const token = req.cookies.token
   const acesso = req.query.acesso
   try {
     const { id } = jwt.verify(token, process.env.senha)
@@ -24,4 +25,4 @@ const perfilUsuario = async (req, res) => {
   }
 }
 
-module.exports = perfilUsuario
+export default perfilUsuario
