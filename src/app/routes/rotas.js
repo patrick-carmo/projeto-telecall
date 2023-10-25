@@ -13,6 +13,8 @@ rotas.post('/autenticar', controle.autenticar)
 rotas.use(verificarAutenticacao)
 rotas.get('/', controle.index)
 rotas.get('/internet', controle.internet)
+rotas.get('/telefonia', controle.telefonia)
+rotas.get('/rede-e-infraestrutura', controle.redeInfraestrutura)
 
 rotas.get('/perfil', perfilUsuario)
 rotas.post('/alterar', usuario.alterar)
