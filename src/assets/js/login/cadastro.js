@@ -1,3 +1,6 @@
+import mostrarSenha from "./mostrarSenha.js"
+mostrarSenha()
+
 function cadastro() {
   //Botões
   const formProximo = document.querySelector('.form-proximo')

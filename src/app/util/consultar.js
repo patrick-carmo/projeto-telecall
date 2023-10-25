@@ -5,7 +5,11 @@ async function consultarUsuarios(filtros, idUsuario) {
     const query = knex('usuario').select('*')
 
     if (Object.keys(filtros).length > 0) {
-      query.where(filtros)
+      query.where((query)=>{
+        for (const chave in filtros) {
+          query.orWhere(chave, filtros[chave])
+        }
+      })
     }
 
     if (idUsuario) {

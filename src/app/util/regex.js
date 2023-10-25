@@ -1,4 +1,3 @@
-// Definir as expressões regulares
 const nome = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$/
 const login = /^[A-Za-z0-9]{5,}$/
 const nomeMaterno = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$/

@@ -7,6 +7,18 @@
   padding: 10px 0px;
 }
 
+.div-password{
+  position: relative;
+}
+
+.div-password i{
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 .feedback-senha{
   color: var(--cor-erro);
   display: none;

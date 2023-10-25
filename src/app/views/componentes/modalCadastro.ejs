@@ -2,18 +2,20 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title fs-5 titulo-modal">Alterar Cadastro</h2>
+        <h2 class="modal-title fs-5 titulo-modal">
+          <%= paginaLogin ? 'Cadastrar' : 'Alterar Cadastro' %>
+        </h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form
-          action="/alterar"
+          action="<%= paginaLogin ? '/cadastrar' : '/alterar' %>"
           method="post"
           class="needs-validation formulario-principal"
-          id="formulario-alterar"
+          id="<%= paginaLogin ? 'formulario-cadastro' : 'formulario-alterar' %>"
           novalidate
         >
-          <input type="hidden" name="tipo" class="tipo" value="alterar" />
+          <input type="hidden" name="tipo" class="tipo" value="<%= paginaLogin ? 'cadastrar' : 'alterar' %>" />
           <div class="cadastro">
             <div class="form-floating modal-input">
               <input
@@ -24,6 +26,7 @@
                 placeholder="Nome"
                 maxlength="60"
                 pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$"
+                required
               />
               <label for="nome">Nome</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -37,6 +40,7 @@
                 placeholder="Data de nascimento"
                 min="1900-01-01"
                 max="2010-01-01"
+                required
               />
               <label for="nascimento">Data de nascimento</label>
             </div>
@@ -45,10 +49,11 @@
               aria-label="Small select example"
               id="sexo"
               name="sexo"
+              required
             >
               <option value="" selected>Sexo</option>
-              <option value="Feminino">Masculino</option>
-              <option value="Masculino">Feminino</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
               <option value="Outro">Outro</option>
             </select>
 
@@ -61,6 +66,7 @@
                 placeholder=""
                 maxlength="60"
                 pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{1,}$"
+                required
               />
               <label for="nomeMaterno">Nome materno</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -73,7 +79,8 @@
                 name="cpf"
                 placeholder=""
                 minlength="14"
-                disabled
+                <%= paginaLogin ? '' : 'disabled' %>
+                required
               />
               <label for="cpf">CPF</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -86,6 +93,7 @@
                 name="celular"
                 placeholder=""
                 minlength="19"
+                required
               />
               <label for="celular">Telefone Celular</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -98,6 +106,7 @@
                 name="fixo"
                 placeholder=""
                 minlength="18"
+                required
               />
               <label for="fixo">Telefone Fixo</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -112,13 +121,14 @@
                 minlength="5"
                 maxlength="6"
                 pattern="^[A-Za-z0-9]{5,6}$"
+                required
               />
               <label for="login">Login</label>
               <p class="invalid-feedback">Campo inválido!</p>
             </div>
-            <div class="form-floating">
+            <div class="form-floating div-password">
               <input
-                type="text"
+                type="password"
                 class="form-control input-cadastro"
                 id="senha"
                 name="senha"
@@ -129,12 +139,13 @@
                 required
               />
               <label for="senha">Senha</label>
+              <i class="bi bi-eye-fill btn-senha"></i>
               <p class="feedback-senha2">Obrigatório: Letra maiúscula e caracter especial!</p>
               <p class="feedback-senha">Senhas não idênticas</p>
             </div>
-            <div class="form-floating">
+            <div class="form-floating div-password">
               <input
-                type="text"
+                type="password"
                 class="form-control input-cadastro"
                 id="senha2"
                 placeholder="Senha"
@@ -144,6 +155,7 @@
                 required
               />
               <label for="senha2">Confirmar Senha</label>
+              <i class="bi bi-eye-fill btn-senha"></i>
               <p class="feedback-senha2">Obrigatório: Letra maiúscula e caracter especial!</p>
               <p class="feedback-senha">Senhas não idênticas</p>
             </div>
@@ -171,6 +183,7 @@
                 name="uf"
                 placeholder="Estado"
                 disabled
+                required
               />
               <label for="uf">Estado</label>
             </div>
@@ -182,6 +195,7 @@
                 name="bairro"
                 placeholder="Bairro"
                 disabled
+                required
               />
               <label for="bairro">Bairro</label>
             </div>
@@ -193,6 +207,7 @@
                 name="localidade"
                 placeholder="Cidade"
                 disabled
+                required
               />
               <label for="localidade">Cidade</label>
             </div>
@@ -204,6 +219,7 @@
                 name="logradouro"
                 placeholder="Logradouro"
                 disabled
+                required
               />
               <label for="logradouro">Logradouro</label>
             </div>
@@ -235,13 +251,13 @@
           </div>
           <div class="botao-formulario">
             <button type="submit" class="btn btn-primary estilo-botao" id="enviar-cadastro">
-              Alterar Cadastro
+              <%= paginaLogin ? 'Cadastrar' : 'Alterar Cadastro' %>
             </button>
 
             <button
-              type="button"
+              type="<%= paginaLogin ? 'reset' : 'button' %>"
               class="btn btn-secondary estilo-botao botao-limpar"
-              id="pegarDados"
+              <%= paginaLogin ? '' : 'id=pegarDados' %>
             >
               Limpar
             </button>

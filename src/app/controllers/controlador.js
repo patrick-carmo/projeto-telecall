@@ -1,24 +1,18 @@
-import path from 'path'
-import { fileURLToPath } from 'url'
 import knex from '../config/conexao.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import erro from '../util/erro.js'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+import render from '../util/render.js'
 
 const controle = {
   index: (req, res) => {
-    const nomeOuLogin = req.nomeOuLogin
-    res.status(200).render('index', { nomeOuLogin })
+    render(req, res, 'index')
   },
   login: (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/login.html'))
+    render(req, res, 'login')
   },
   internet: (req, res) => {
-    const nomeOuLogin = req.nomeOuLogin
-    res.status(200).render('internet', { nomeOuLogin })
+    render(req, res, 'internet')
   },
   autenticar: async (req, res) => {
     const { login, senha } = req.body
@@ -38,10 +32,11 @@ const controle = {
       const token = jwt.sign({ id: usuario.id }, process.env.senha, {
         expiresIn: '30d',
       })
-      
+
       res.cookie('token', token, {
         httpOnly: true,
         secure: true,
+        sameSite: true,
       })
 
       res.status(200).json({ mensagem: 'Login efetuado com sucesso!' })
