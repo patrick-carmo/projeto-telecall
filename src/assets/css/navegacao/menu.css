@@ -50,18 +50,6 @@
   font-size: var(--fs-xxp);
 }
 
-@media(max-width: 1200px){
-  .nav-principal{
-    gap: 50px;
-  }
-}
-
-@media(max-width: 700px){
-  .flex{
-    display: block;
-  }
-}
-
 .menu{
   display: flex;
   align-items: center;
@@ -87,4 +75,16 @@
 
 .menu a:hover:after{
   width: 100%;
+}
+
+@media(max-width: 1200px){
+  .nav-principal{
+    gap: 50px;
+  }
+}
+
+@media(max-width: 700px){
+  .flex{
+    display: block;
+  }
 }

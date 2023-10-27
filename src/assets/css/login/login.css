@@ -18,15 +18,7 @@ body {
 }
 
 .fundo-login {
-  background-image: url(../../img/pngwing.com\ \(4\).png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: background-image 0.5s ease;
-}
-
-.dark-mode .fundo-login {
-  background-image: url(../../img/pngwing.com\ \(2\).png);
+  background-image: url(/img/login.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -47,7 +47,6 @@ const controle = {
       res.cookie('token', token, {
         httpOnly: true,
         secure: true,
-        sameSite: true,
       })
 
       res.status(200).json({ mensagem: 'Login efetuado com sucesso!' })

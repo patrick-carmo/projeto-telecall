@@ -1,5 +1,8 @@
 export default function dark() {
   const modo = document.querySelector('#dark')
+  const bgIndex = document.querySelector('.fundo-index')
+  const bgLogin = document.querySelector('.fundo-login')
+
   const logoMenu = document.querySelector('#logo-menu')
   const logoLogin = document.querySelector('#logo-login')
   const facebookIcon = document.querySelector('#facebook-icone')
@@ -7,25 +10,54 @@ export default function dark() {
   const linkedinIcon = document.querySelector('#linkedin-icone')
   const seta = document.querySelector('#seta-topo')
 
+  const modoClaro = {
+    bgIndex: '/img/index.jpg',
+    bgLogin: '/img/login.webp',
+    facebookIcon: '/img/facebook.svg',
+    instagramIcon: '/img/instagram.svg',
+    linkedinIcon: '/img/linkedin.svg',
+    logoMenu: '/img/telecall-logo-header-blue.svg',
+    logoLogin: '/img/telecall-logo.svg',
+    seta: '/img/back-top.svg',
+  }
+
+  const modoEscuro = {
+    bgIndex: '/img/index-dark.webp',
+    bgLogin: '/img/login-dark.png',
+    facebookIcon: '/img/facebook-dark.svg',
+    instagramIcon: '/img/instagram-dark.svg',
+    linkedinIcon: '/img/linkedin-dark.svg',
+    logoMenu: '/img/telecall-logo-header-red.svg',
+    logoLogin: '/img/telecall-logo-dark.svg',
+    seta: '/img/back-top-dark.svg',
+  }
+
   function verificarModo() {
-    if (document.body.classList.contains('dark-mode')) {
-      if (facebookIcon && instagramIcon && linkedinIcon) {
-        facebookIcon.src = '/img/facebook-dark.svg'
-        instagramIcon.src = '/img/instagram-dark.svg'
-        linkedinIcon.src = '/img/linkedin-dark.svg'
-      }
+    const modoAtual = document.body.classList.contains('dark-mode') ? modoEscuro : modoClaro
 
-      if (logoMenu) {
-        logoMenu.src = '/img/telecall-logo-header-red.svg'
-      }
+    if (bgIndex) {
+      bgIndex.style.backgroundImage = `url(${modoAtual.bgIndex})`
+    }
+    if (bgLogin) {
+      bgLogin.style.backgroundImage = `url(${modoAtual.bgLogin})`
+    }
 
-      if (logoLogin) {
-        logoLogin.src = '/img/telecall-logo-dark.svg'
-      }
+    if (facebookIcon && instagramIcon && linkedinIcon) {
+      facebookIcon.src = modoAtual.facebookIcon
+      instagramIcon.src = modoAtual.instagramIcon
+      linkedinIcon.src = modoAtual.linkedinIcon
+    }
 
-      if (seta) {
-        seta.src = '/img/back-top-dark.svg'
-      }
+    if (logoMenu) {
+      logoMenu.src = modoAtual.logoMenu
+    }
+
+    if (logoLogin) {
+      logoLogin.src = modoAtual.logoLogin
+    }
+
+    if (seta) {
+      seta.src = modoAtual.seta
     }
   }
 

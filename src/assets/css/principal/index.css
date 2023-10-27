@@ -1,9 +1,35 @@
-.imagem-fundo {
-  background-image: url(../../img/conexao2.jpg);
+.fundo-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 690px;
+  background-image: url(../../img/index.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.section-titulo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: var(--cor-texto-menu);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.titulo {
+  text-shadow: 0px 0px 3px var(--cor-header-after);
+  font-size: var(--fs-j);
+  hyphens: auto;
+}
+
+.section-titulo p {
+  text-shadow: 0px 0px 3px var(--cor-header-after);
+  font-size: var(--fs-g);
 }
 
 .botao-principal {
@@ -22,28 +48,6 @@
 .botao-principal:hover {
   transform: scale(1.1);
   background-color: var(--cor-bg-s);
-}
-
-.section-titulo {
-  height: 690px;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.titulo {
-  color: var(--cor-texto-menu);
-  font-size: var(--fs-j);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  hyphens: auto;
-}
-
-.section-titulo p {
-  color: var(--cor-texto-drop);
-  font-size: var(--fs-g);
 }
 
 .section {
