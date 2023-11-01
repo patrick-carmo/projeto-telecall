@@ -15,8 +15,8 @@ async function consultarUsuarios(filtros, idUsuario) {
     if (idUsuario) {
       query.whereNot('id', idUsuario)
     }
-
-    const resultado = await query
+    
+    const resultado = await query.first()
 
     return resultado
   } catch (error) {

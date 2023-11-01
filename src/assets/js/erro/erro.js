@@ -3,8 +3,8 @@ export default function erro() {
 
   function apagarCookies() {
     const cookies = document.cookie.split(';')
-    for (let cookie of cookies) {
-      let nome = cookie.split('=')[0]
+    for (const cookie of cookies) {
+      const nome = cookie.split('=')[0]
       document.cookie = nome + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC'
     }
   }

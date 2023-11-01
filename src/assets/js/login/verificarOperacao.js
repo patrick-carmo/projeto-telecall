@@ -64,10 +64,8 @@ export default function verificarCadastro() {
       'complemento',
       'complementoAdicional',
     ]
-
     try {
       obterCampo(ids)
-
       if (camposValidos) {
         if (tipo.value === 'cadastrar') {
           await realizarSolicitacao('/cadastrar', valores)
@@ -89,28 +87,42 @@ export default function verificarCadastro() {
             erroCadastro.style.display = 'none'
             erroCadastro.style.color = ''
             erroCadastro.textContent = ''
-          }, 5000)
+          }, 10000)
         }
       }
     } catch (error) {
       erroCadastro.style.display = 'block'
-      const mensagem = error.response.data.mensagem
-        ? error.response.data.mensagem.replaceAll(',', ', ').trim()
-        : error.message
 
-      const dados = error.response.data.dados
+      const mensagem = error.response.data.mensagem ?? error.message
+      const erroValidacaoInput = error.response.data.erroDetalhado
+      const erroCadastroOuAlteracao = error.response.data.erros
 
-      campos.forEach((campo) => {
-        const id = campo.id
-        if (dados) {
-          if (dados[0].includes(id)) {
-            campo.classList.add('is-invalid')
-            campo.classList.remove('is-valid')
-          } else {
-            campo.classList.remove('is-invalid')
+      function exibirErroInput(erro) {
+        const excessoes = ['uf', 'bairro', 'localidade', 'logradouro', 'sexo']
+
+        for (const detalhes of erro) {
+          const dados = detalhes.path ? detalhes.path[0] : detalhes
+
+
+          if (excessoes.includes(dados)) {
+            continue
           }
+          const input = document.getElementById(dados)
+          const divDoInput = input.parentElement
+          const paragrafoErro = divDoInput.querySelector('p')
+
+          paragrafoErro.textContent = detalhes.message ?? `Campo ${detalhes} já cadastrado por outro usuário`
+          input.classList.add('is-invalid')
         }
-      })
+
+      }
+
+      if (erroValidacaoInput) {
+        exibirErroInput(erroValidacaoInput)
+      }      
+      if (erroCadastroOuAlteracao) {
+        exibirErroInput(erroCadastroOuAlteracao)
+      }
 
       modal.style.border = '2px solid red'
       erroCadastro.textContent = mensagem
@@ -118,7 +130,7 @@ export default function verificarCadastro() {
         modal.style.border = ''
         erroCadastro.style.display = 'none'
         erroCadastro.textContent = ''
-      }, 5000)
+      }, 10000)
     }
   }
 }

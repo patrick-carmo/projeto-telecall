@@ -1,4 +1,4 @@
-import mostrarSenha from "./mostrarSenha.js"
+import mostrarSenha from './mostrarSenha.js'
 mostrarSenha()
 
 function cadastro() {
@@ -12,7 +12,8 @@ function cadastro() {
   const formCadastro = document.querySelector('.cadastro')
   const formEndereco = document.querySelector('.form-endereco')
 
-  const parteAtual = formCadastro.querySelectorAll('.form-control')
+  const inputsCadastro = formCadastro.querySelectorAll('.form-control')
+  const inputsEndereco = formEndereco.querySelectorAll('.form-control')
 
   const numero = document.querySelector('#complemento')
   const cep = document.querySelector('#cep')
@@ -22,33 +23,25 @@ function cadastro() {
   const senha2 = document.querySelector('#senha2')
 
   const senhaFeedback = document.querySelectorAll('.feedback-senha')
-  const senhaFeedback2 = document.querySelectorAll('.feedback-senha2')
 
   function validarSenha(campo) {
     const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-
-    const idSenhas = ['senha', 'senha2']
     const campoId = campo.getAttribute('id')
 
-    if (idSenhas.includes(campoId)) {
-      const senhaFeedback2campo = campo.parentNode.querySelectorAll('.feedback-senha2')
-
-      senhaFeedback.forEach((elemento) => {
+    if (campoId === 'senha' || campoId === 'senha2') {
+      for (const elemento of senhaFeedback) {
         elemento.style.display = 'none'
-      })
+      }
 
       if (campo.value.trim() === '') {
         campo.classList.remove('is-valid', 'is-invalid')
-        senhaFeedback2.forEach((elemento) => {
-          elemento.style.display = 'none'
-        })
-
         return
       }
 
-      senhaFeedback2campo.forEach((elemento) => {
-        elemento.style.display = campo.value.match(regex) ? 'none' : 'block'
-      })
+      if (!campo.value.match(regex)) {
+        campo.classList.add('is-invalid')
+        return
+      }
 
       if (senha1.value.match(regex) && senha2.value.match(regex)) {
         if (senha1.value === senha2.value) {
@@ -56,36 +49,34 @@ function cadastro() {
           senha2.classList.remove('is-invalid')
           senha1.classList.add('is-valid')
           senha2.classList.add('is-valid')
-          senhaFeedback.forEach((elemento) => (elemento.style.display = 'none'))
+
           return
         }
-        senhaFeedback.forEach((elemento) => {
+
+        for (const elemento of senhaFeedback) {
           elemento.style.display = 'block'
-        })
+        }
         senha1.classList.add('is-invalid')
         senha2.classList.add('is-invalid')
-
-        return
       }
     }
   }
 
-  parteAtual.forEach((campo) => {
+  inputsCadastro.forEach((campo) => {
     campo.addEventListener('input', () => {
       if (campo.value.trim() === '') {
-        campo.classList.remove('is-valid')
-        campo.classList.remove('is-invalid')
-      }
-
-      if (!campo.checkValidity()) {
-        campo.classList.remove('is-valid')
-        campo.classList.add('is-invalid')
+        campo.classList.remove('is-valid', 'is-invalid')
       } else {
+        if (!campo.checkValidity()) {
+          campo.classList.remove('is-valid')
+          campo.classList.add('is-invalid')
+        }
+
         campo.classList.remove('is-invalid')
         campo.classList.add('is-valid')
-      }
 
-      validarSenha(campo)
+        validarSenha(campo)
+      }
     })
   })
 
@@ -120,23 +111,26 @@ function cadastro() {
       }
     }
 
-    parteAtual.forEach((campo) => {
-      if (!campo.checkValidity()) {
-        camposValidos = false
-        campo.classList.add('is-invalid')
-        return
-      } else {
-        campo.classList.remove('is-invalid')
-        campo.classList.add('is-valid')
-      }
-    })
+    function validarCampos(campos) {
+      campos.forEach((campo) => {
+        if (!campo.checkValidity()) {
+          camposValidos = false
+          campo.classList.remove('is-valid')
+          campo.classList.add('is-invalid')
+        } else {
+          campo.classList.remove('is-invalid')
+          campo.classList.add('is-valid')
+        }
+      })
+    }
+    validarCampos(inputsCadastro)
 
     if (senha1.value === '' || senha2.value === '') {
       camposValidos = false
       senha1.classList.add('is-invalid')
       senha2.classList.add('is-invalid')
 
-      senhaFeedback2.forEach((campo) => {
+      senhaFeedback.forEach((campo) => {
         campo.style.display = 'block'
       })
 
@@ -161,7 +155,10 @@ function cadastro() {
   const limpar = document.querySelector('.botao-limpar')
 
   limpar.addEventListener('click', function () {
-    parteAtual.forEach((campo) => {
+    inputsCadastro.forEach((campo) => {
+      campo.classList.remove('is-invalid', 'is-valid')
+    })
+    inputsEndereco.forEach((campo) => {
       campo.classList.remove('is-invalid', 'is-valid')
     })
 
@@ -170,7 +167,6 @@ function cadastro() {
     senha1.classList.remove('is-valid')
     senha2.classList.remove('is-valid')
     senhaFeedback.forEach((campo) => (campo.style.display = 'none'))
-    senhaFeedback2.forEach((campo) => (campo.style.display = 'none'))
 
     cep.classList.remove('is-invalid', 'is-valid')
     cep.value = ''
@@ -260,7 +256,7 @@ function cadastro() {
       return
     }
 
-    parteAtual.forEach((elemento) => {
+    inputsCadastro.forEach((elemento) => {
       if (elemento.classList.contains('is-invalid')) {
         temErro = true
       }

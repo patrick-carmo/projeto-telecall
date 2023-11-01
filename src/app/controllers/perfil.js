@@ -1,4 +1,3 @@
-// Importar os módulos usando o import
 import knex from '../config/conexao.js'
 import jwt from 'jsonwebtoken'
 

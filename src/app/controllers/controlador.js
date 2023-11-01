@@ -1,14 +1,13 @@
 import knex from '../config/conexao.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import erro from '../util/erro.js'
 import render from '../util/render.js'
 
 const controle = {
   index: (req, res) => {
     render(req, res, 'index')
   },
-  
+
   login: (req, res) => {
     render(req, res, 'login')
   },
@@ -31,17 +30,17 @@ const controle = {
       const usuario = await knex('usuario').where('login', login).first()
 
       if (!usuario) {
-        erro(400, 'Login incorreto!')
+        return res.status(400).json({ mensagem: 'Login incorreto!' })
       }
 
       const confirmarSenha = await bcrypt.compare(senha, usuario.senha)
 
       if (!confirmarSenha) {
-        erro(400, 'Senha incorreta!')
+        return res.status(400).json({ mensagem: 'Senha incorreta!' })
       }
 
       const token = jwt.sign({ id: usuario.id }, process.env.senha, {
-        expiresIn: '30d',
+        expiresIn: '1d',
       })
 
       res.cookie('token', token, {
@@ -50,8 +49,8 @@ const controle = {
       })
 
       res.status(200).json({ mensagem: 'Login efetuado com sucesso!' })
-    } catch (e) {
-      res.status(e.status || 500).json({ mensagem: e.message })
+    } catch (error) {
+      res.status(error.status || 500).json({ mensagem: 'Erro interno do servidor.' })
     }
   },
 

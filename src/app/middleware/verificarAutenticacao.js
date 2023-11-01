@@ -1,13 +1,12 @@
 import jwt from 'jsonwebtoken'
 import knex from '../config/conexao.js'
-import erro from '../util/erro.js'
 
 const verificarAutenticacao = async (req, res, next) => {
   const token = req.cookies.token
 
   try {
     if (!token) {
-      erro(401, 'Sessao expirada!')
+      return res.status(401).redirect('/login')
     }
 
     const { id } = jwt.verify(token, process.env.senha)
@@ -15,7 +14,7 @@ const verificarAutenticacao = async (req, res, next) => {
     const usuario = await knex('usuario').where('id', id).first()
 
     if (!usuario) {
-      erro(403, 'usuário não encontrado!')
+      return res.status(403).redirect('/login')
     }
 
     const { nome, login } = usuario
@@ -32,7 +31,6 @@ const verificarAutenticacao = async (req, res, next) => {
       return res.status(401).redirect('/login')
     }
 
-    res.clearCookie('token')
     return res.status(error.status || 500).redirect('/login')
   }
 }

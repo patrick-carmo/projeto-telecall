@@ -24,9 +24,6 @@
                 id="nome"
                 name="nome"
                 placeholder="Nome"
-                maxlength="60"
-                pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$"
-                required
               />
               <label for="nome">Nome</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -38,20 +35,19 @@
                 id="nascimento"
                 name="nascimento"
                 placeholder="Data de nascimento"
-                min="1900-01-01"
-                max="2010-01-01"
-                required
               />
               <label for="nascimento">Data de nascimento</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+
             </div>
+
             <select
               class="form-select form-select-sm form-control input-cadastro"
               aria-label="Small select example"
               id="sexo"
               name="sexo"
-              required
             >
-              <option value="" selected>Sexo</option>
+              <option selected>Sexo</option>
               <option value="Masculino">Masculino</option>
               <option value="Feminino">Feminino</option>
               <option value="Outro">Outro</option>
@@ -64,9 +60,6 @@
                 id="nomeMaterno"
                 name="nomeMaterno"
                 placeholder=""
-                maxlength="60"
-                pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{1,}$"
-                required
               />
               <label for="nomeMaterno">Nome materno</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -78,9 +71,7 @@
                 id="cpf"
                 name="cpf"
                 placeholder=""
-                minlength="14"
                 <%= paginaLogin ? '' : 'disabled' %>
-                required
               />
               <label for="cpf">CPF</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -93,7 +84,6 @@
                 name="celular"
                 placeholder=""
                 minlength="19"
-                required
               />
               <label for="celular">Telefone Celular</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -105,8 +95,6 @@
                 id="fixo"
                 name="fixo"
                 placeholder=""
-                minlength="18"
-                required
               />
               <label for="fixo">Telefone Fixo</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -118,10 +106,6 @@
                 id="login"
                 name="login"
                 placeholder=""
-                minlength="5"
-                maxlength="6"
-                pattern="^[A-Za-z0-9]{5,6}$"
-                required
               />
               <label for="login">Login</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -133,14 +117,11 @@
                 id="senha"
                 name="senha"
                 placeholder="Senha"
-                minlength="8"
-                maxlength="15"
                 pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                required
               />
               <label for="senha">Senha</label>
               <i class="bi bi-eye-fill btn-senha"></i>
-              <p class="feedback-senha2">Obrigatório: Letra maiúscula e caracter especial!</p>
+              <p class="invalid-feedback senha-invalida">Obrigatório: Letra maiúscula e caracter especial!</p>
               <p class="feedback-senha">Senhas não idênticas</p>
             </div>
             <div class="form-floating">
@@ -149,14 +130,11 @@
                 class="form-control input-cadastro"
                 id="senha2"
                 placeholder="Senha"
-                minlength="8"
-                maxlength="15"
                 pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                required
               />
               <label for="senha2">Confirmar Senha</label>
               <i class="bi bi-eye-fill btn-senha"></i>
-              <p class="feedback-senha2">Obrigatório: Letra maiúscula e caracter especial!</p>
+              <p class="invalid-feedback senha-invalida">Obrigatório: Letra maiúscula e caracter especial!</p>
               <p class="feedback-senha">Senhas não idênticas</p>
             </div>
           </div>
@@ -169,8 +147,6 @@
                 id="cep"
                 name="cep"
                 placeholder="cep"
-                pattern="[0-9]{5}-[0-9]{3}"
-                required
               />
               <label for="cep">CEP <span class="obrigatorio">*</span></label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -183,9 +159,10 @@
                 name="uf"
                 placeholder="Estado"
                 disabled
-                required
               />
               <label for="uf">Estado</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+
             </div>
             <div class="form-floating input-oculto">
               <input
@@ -195,9 +172,10 @@
                 name="bairro"
                 placeholder="Bairro"
                 disabled
-                required
               />
               <label for="bairro">Bairro</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+
             </div>
             <div class="form-floating input-oculto">
               <input
@@ -207,9 +185,10 @@
                 name="localidade"
                 placeholder="Cidade"
                 disabled
-                required
               />
               <label for="localidade">Cidade</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+
             </div>
             <div class="form-floating input-oculto">
               <input
@@ -219,9 +198,10 @@
                 name="logradouro"
                 placeholder="Logradouro"
                 disabled
-                required
               />
               <label for="logradouro">Logradouro</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+
             </div>
             <div class="form-floating input-oculto">
               <input
@@ -230,11 +210,10 @@
                 id="complemento"
                 name="complemento"
                 placeholder="Complemento"
-                maxlength="20"
-                pattern="^(?![.,\s])[\wÀ-ÿ.,\s]*$"
-                required
               />
               <label for="complemento">Numero <span class="obrigatorio">*</span></label>
+              <p class="invalid-feedback">Campo inválido!</p>
+
             </div>
             <div class="form-floating input-oculto modal-input">
               <input
@@ -243,10 +222,10 @@
                 id="complementoAdicional"
                 name="complementoAdicional"
                 placeholder="Complemento"
-                maxlength="40"
-                pattern="^(?![.,\s])[\wÀ-ÿ.,\s]{0,}$"
               />
               <label for="complementoAdicional">Complemento</label>
+              <p class="invalid-feedback">Campo inválido!</p>
+
             </div>
           </div>
           <div class="botao-formulario">

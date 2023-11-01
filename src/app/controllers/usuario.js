@@ -1,22 +1,13 @@
 import knex from '../config/conexao.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import operacao from '../util/operacao.js'
 
 const usuario = {
   cadastrar: async (req, res) => {
     const dados = req.body
-    const erros = []
-
     const senha = await bcrypt.hash(dados.senha, 10)
+
     try {
-      const erroOperacao = await operacao(dados)
-
-      if (erroOperacao) {
-        erros.push(erroOperacao)
-        throw erros
-      }
-
       await knex.transaction(async (trx) => {
         const usuario = await trx('usuario')
           .insert({
@@ -69,9 +60,7 @@ const usuario = {
 
       res.status(203).json({ mensagem: 'Cadastrado com sucesso!' })
     } catch (error) {
-      res
-        .status(error[0].error.status || 500)
-        .json({ mensagem: error[0].error.message || error.message, dados: erros[0].erros })
+      res.status(500).json({ mensagem: 'Erro interno do servidor.' })
     }
   },
 
@@ -79,17 +68,9 @@ const usuario = {
     const dados = req.body
     const token = req.cookies.token
     const { id } = jwt.verify(token, process.env.senha)
-    const erros = []
 
     const senha = await bcrypt.hash(dados.senha, 10)
     try {
-      const erroOperacao = await operacao(dados, id)
-
-      if (erroOperacao) {
-        erros.push(erroOperacao)
-        throw erros
-      }
-
       await knex.transaction(async (operacao) => {
         await operacao('usuario')
           .update({
@@ -120,12 +101,8 @@ const usuario = {
 
       res.status(203).json({ mensagem: 'Cadastro alterado com sucesso!' })
     } catch (error) {
-      if (erros.length > 0) {
-        return res
-          .status(error[0].error.status || 500)
-          .json({ mensagem: error[0].error.message || error.message, dados: erros[0].erros })
-      }
-      res.status(error.status || 500).json({ mensagem: error.message })
+      console.log('aqui')
+      res.status(500).json({ mensagem: error.message })
     }
   },
 }
