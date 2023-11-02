@@ -1,4 +1,4 @@
-import { realizarSolicitacao } from '../axios.js'
+import { enviarRequisicaoPost } from './axios.js'
 
 export async function autenticarUsuario(login, senha) {
   const loginData = {
@@ -6,7 +6,7 @@ export async function autenticarUsuario(login, senha) {
     senha,
   }
   try {
-    await realizarSolicitacao('/autenticar', loginData)
+    await enviarRequisicaoPost('/autenticar', loginData)
   } catch (error) {
     throw error
   }

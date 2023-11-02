@@ -1,6 +1,6 @@
-import { realizarSolicitacao } from '../axios.js'
+import { enviarRequisicaoPost } from './axios.js'
 
-export default function verificarCadastro() {
+export default function cadastrarOuAlterar() {
   const formularioCadastro = document.getElementById('formulario-cadastro')
   const erroCadastro = document.getElementById('erroCadastro')
   const modal = document.querySelector('.modal-content')
@@ -39,9 +39,9 @@ export default function verificarCadastro() {
     const valores = {}
 
     function obterCampo(array) {
-      for (let id of array) {
-        let input = document.getElementById(id)
-        let valor = input.value
+      for (const id of array) {
+        const input = document.getElementById(id)
+        const valor = input.value
         valores[id] = valor
       }
     }
@@ -68,11 +68,11 @@ export default function verificarCadastro() {
       obterCampo(ids)
       if (camposValidos) {
         if (tipo.value === 'cadastrar') {
-          await realizarSolicitacao('/cadastrar', valores)
+          await enviarRequisicaoPost('/cadastrar', valores)
           window.location.href = '/'
           return
         }
-        await realizarSolicitacao('/alterar', valores)
+        await enviarRequisicaoPost('/alterar', valores)
 
         if (tipo.value === 'alterar') {
           const limpar = document.getElementById('pegarDados')
@@ -103,7 +103,6 @@ export default function verificarCadastro() {
         for (const detalhes of erro) {
           const dados = detalhes.path ? detalhes.path[0] : detalhes
 
-
           if (excessoes.includes(dados)) {
             continue
           }
@@ -111,15 +110,15 @@ export default function verificarCadastro() {
           const divDoInput = input.parentElement
           const paragrafoErro = divDoInput.querySelector('p')
 
-          paragrafoErro.textContent = detalhes.message ?? `Campo ${detalhes} já cadastrado por outro usuário`
+          paragrafoErro.textContent =
+            detalhes.message ?? `Campo ${detalhes} já cadastrado por outro usuário`
           input.classList.add('is-invalid')
         }
-
       }
 
       if (erroValidacaoInput) {
         exibirErroInput(erroValidacaoInput)
-      }      
+      }
       if (erroCadastroOuAlteracao) {
         exibirErroInput(erroCadastroOuAlteracao)
       }

@@ -1,4 +1,4 @@
-export default function erro() {
+export default function sessaoExpirada() {
   const erroLogin = document.getElementById('erroLogin')
 
   function apagarCookies() {

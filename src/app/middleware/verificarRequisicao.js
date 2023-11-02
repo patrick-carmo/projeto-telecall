@@ -1,7 +1,7 @@
 import consultarUsuarios from '../util/consultar.js'
 import jwt from 'jsonwebtoken'
 
-const verificarDados = (schema) => async (req, res, next) => {
+const validarDadosRequisicao = (schema) => async (req, res, next) => {
   const dados = req.body
 
   try {
@@ -46,8 +46,7 @@ const verificarDados = (schema) => async (req, res, next) => {
 
     next()
   } catch (error) {
-    console.log(error)
-
+    
     if (error.details) {
       const erros = error.details.reduce((accumulator, detalhes) => {
         accumulator.push(...detalhes.path)
@@ -64,4 +63,4 @@ const verificarDados = (schema) => async (req, res, next) => {
   }
 }
 
-export default verificarDados
+export default validarDadosRequisicao

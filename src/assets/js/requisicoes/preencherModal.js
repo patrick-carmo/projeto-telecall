@@ -1,5 +1,5 @@
-import cadastro from '../login/cadastro.js'
-cadastro()
+import validarFormulario from '../login/validarFormulario.js'
+validarFormulario()
 
 function buscarDados() {
   axios

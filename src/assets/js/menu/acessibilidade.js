@@ -1,4 +1,4 @@
-export default function acc() {
+export default function acessibilidade() {
   const zoom = (operacao) => {
     let zoomValue = parseFloat(localStorage.getItem('zoomValue')) || 1.0
 
@@ -17,7 +17,7 @@ export default function acc() {
   document.getElementById('aumentar').addEventListener('click', () => zoom('+'))
   document.getElementById('diminuir').addEventListener('click', () => zoom())
 
-  let savedZoom = parseFloat(localStorage.getItem('zoomValue'))
+  const savedZoom = parseFloat(localStorage.getItem('zoomValue'))
 
   if (!isNaN(savedZoom)) {
     document.body.style.zoom = savedZoom

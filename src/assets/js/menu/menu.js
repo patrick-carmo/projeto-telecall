@@ -1,17 +1,17 @@
-import dark from '../dark.js'
-import acc from './acc.js'
+import modoNoturno from '../modoNoturno.js'
+import acessibilidade from './acessibilidade.js'
 import menuMobile from './menu-mobile.js'
 import dropdown from './dropdown-menu.js'
 import menuFixo from './menu-fixo.js'
-import verificarCadastro from '../login/verificarOperacao.js'
-import grid from '../principal/gridSpan.js'
-import scroll from '../principal/scroll.js'
+import gridSpan from '../index/gridSpan.js'
+import scroll from '../index/scroll.js'
+import cadastrarOuAlterar from '../requisicoes/cadastroOuAlteracao.js'
 
-verificarCadastro()
 menuFixo()
-dark()
-acc()
+modoNoturno()
+acessibilidade()
 menuMobile()
 dropdown()
-grid()
+gridSpan()
 scroll()
+cadastrarOuAlterar()

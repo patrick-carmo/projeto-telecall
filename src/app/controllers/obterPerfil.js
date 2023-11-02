@@ -1,7 +1,7 @@
 import knex from '../config/conexao.js'
 import jwt from 'jsonwebtoken'
 
-const perfilUsuario = async (req, res) => {
+const obterPerfilUsuario = async (req, res) => {
   const token = req.cookies.token
   const acesso = req.query.acesso
   try {
@@ -24,4 +24,4 @@ const perfilUsuario = async (req, res) => {
   }
 }
 
-export default perfilUsuario
+export default obterPerfilUsuario

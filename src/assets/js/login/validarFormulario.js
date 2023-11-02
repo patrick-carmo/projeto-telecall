@@ -1,7 +1,7 @@
 import mostrarSenha from './mostrarSenha.js'
 mostrarSenha()
 
-function cadastro() {
+export default function validarFormulario() {
   //Botões
   const formProximo = document.querySelector('.form-proximo')
   const formAnterior = document.querySelector('.form-anterior')
@@ -290,5 +290,3 @@ function cadastro() {
   $('#fixo').mask('+55 (00) 0000-0000')
   $('#cpf').mask('000.000.000-00', { reverse: true })
 }
-
-export default cadastro

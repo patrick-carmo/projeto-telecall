@@ -1,4 +1,4 @@
-export default function dark() {
+export default function modoNoturno() {
   const modo = document.querySelector('#dark')
   const bgIndex = document.querySelector('.fundo-index')
   const bgLogin = document.querySelector('.fundo-login')

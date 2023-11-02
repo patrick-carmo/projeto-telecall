@@ -1,15 +1,15 @@
-import cadastro from './login/cadastro.js'
-cadastro()
+import validarFormulario from './login/validarFormulario.js'
+validarFormulario()
 
-import dark from './dark.js'
-dark()
+import modoEscuro from './modoNoturno.js'
+modoEscuro()
 
-import { botaoTeste, verificarLogin } from './login/verificarLogin.js'
+import { botaoTeste, verificarLogin } from './requisicoes/requisicaoLogin.js'
 botaoTeste()
 verificarLogin()
 
-import verificarCadastro from './login/verificarOperacao.js'
-verificarCadastro()
+import cadastrarOuAlterar from './requisicoes/cadastroOuAlteracao.js'
+cadastrarOuAlterar()
 
-import erro from './erro/erro.js'
-erro()
+import sessaoExpirada from './mensagensDeErro/sessaoExpirada.js'
+sessaoExpirada()

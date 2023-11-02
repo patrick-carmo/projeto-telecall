@@ -1,4 +1,4 @@
-export async function realizarSolicitacao(url, dados) {
+export async function enviarRequisicaoPost(url, dados) {
   try {
     const response = await axios.post(url, dados)
     return response

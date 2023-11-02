@@ -1,4 +1,4 @@
-export default function grid() {
+export default function gridSpan() {
   const containers = document.querySelectorAll('.container-conteudo')
 
   containers.forEach((container) => {
