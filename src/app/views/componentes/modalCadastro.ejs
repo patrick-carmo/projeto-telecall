@@ -24,6 +24,9 @@
                 id="nome"
                 name="nome"
                 placeholder="Nome"
+                maxlength="60"
+                pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$"
+                required
               />
               <label for="nome">Nome</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -35,19 +38,23 @@
                 id="nascimento"
                 name="nascimento"
                 placeholder="Data de nascimento"
+                min="1900-01-01"
+                max="2007-01-01"
+                required
               />
               <label for="nascimento">Data de nascimento</label>
               <p class="invalid-feedback">Campo inválido!</p>
-
             </div>
+
 
             <select
               class="form-select form-select-sm form-control input-cadastro"
               aria-label="Small select example"
               id="sexo"
               name="sexo"
+              required
             >
-              <option selected>Sexo</option>
+              <option selected disabled value="">Sexo</option>
               <option value="Masculino">Masculino</option>
               <option value="Feminino">Feminino</option>
               <option value="Outro">Outro</option>
@@ -60,6 +67,9 @@
                 id="nomeMaterno"
                 name="nomeMaterno"
                 placeholder=""
+                maxlength="60"
+                pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]{10,}$"
+                required
               />
               <label for="nomeMaterno">Nome materno</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -71,6 +81,8 @@
                 id="cpf"
                 name="cpf"
                 placeholder=""
+                minlength="14"
+                required
                 <%= paginaLogin ? '' : 'disabled' %>
               />
               <label for="cpf">CPF</label>
@@ -84,6 +96,7 @@
                 name="celular"
                 placeholder=""
                 minlength="19"
+                required
               />
               <label for="celular">Telefone Celular</label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -94,6 +107,8 @@
                 class="form-control input-cadastro"
                 id="fixo"
                 name="fixo"
+                minlength="18"
+                required
                 placeholder=""
               />
               <label for="fixo">Telefone Fixo</label>
@@ -105,6 +120,10 @@
                 class="form-control input-cadastro"
                 id="login"
                 name="login"
+                minlength="5"
+                maxlength="6"
+                pattern="^(?=.*[A-Za-z])[A-Za-z0-9]{5,6}$"
+                required
                 placeholder=""
               />
               <label for="login">Login</label>
@@ -117,7 +136,10 @@
                 id="senha"
                 name="senha"
                 placeholder="Senha"
+                minlength="8"
+                maxlength="15"
                 pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                required
               />
               <label for="senha">Senha</label>
               <i class="bi bi-eye-fill btn-senha"></i>
@@ -130,7 +152,10 @@
                 class="form-control input-cadastro"
                 id="senha2"
                 placeholder="Senha"
+                minlength="8"
+                maxlength="15"
                 pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                required
               />
               <label for="senha2">Confirmar Senha</label>
               <i class="bi bi-eye-fill btn-senha"></i>
@@ -147,6 +172,8 @@
                 id="cep"
                 name="cep"
                 placeholder="cep"
+                pattern="[0-9]{5}-[0-9]{3}"
+                required
               />
               <label for="cep">CEP <span class="obrigatorio">*</span></label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -158,6 +185,7 @@
                 id="uf"
                 name="uf"
                 placeholder="Estado"
+                required
                 disabled
               />
               <label for="uf">Estado</label>
@@ -171,6 +199,7 @@
                 id="bairro"
                 name="bairro"
                 placeholder="Bairro"
+                required
                 disabled
               />
               <label for="bairro">Bairro</label>
@@ -184,6 +213,7 @@
                 id="localidade"
                 name="localidade"
                 placeholder="Cidade"
+                required
                 disabled
               />
               <label for="localidade">Cidade</label>
@@ -197,6 +227,7 @@
                 id="logradouro"
                 name="logradouro"
                 placeholder="Logradouro"
+                required
                 disabled
               />
               <label for="logradouro">Logradouro</label>
@@ -210,6 +241,9 @@
                 id="complemento"
                 name="complemento"
                 placeholder="Complemento"
+                maxlength="20"
+                pattern="^(?![.,\s])[\wÀ-ÿ.,\s]*$"
+                required
               />
               <label for="complemento">Numero <span class="obrigatorio">*</span></label>
               <p class="invalid-feedback">Campo inválido!</p>
@@ -222,6 +256,8 @@
                 id="complementoAdicional"
                 name="complementoAdicional"
                 placeholder="Complemento"
+                maxlength="40"
+                pattern="^(?![.,\s])[\wÀ-ÿ.,\s]{0,}$"
               />
               <label for="complementoAdicional">Complemento</label>
               <p class="invalid-feedback">Campo inválido!</p>

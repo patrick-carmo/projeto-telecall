@@ -70,12 +70,11 @@ export default function validarFormulario() {
         if (!campo.checkValidity()) {
           campo.classList.remove('is-valid')
           campo.classList.add('is-invalid')
+        } else {
+          campo.classList.remove('is-invalid')
+          campo.classList.add('is-valid')
+          validarSenha(campo)
         }
-
-        campo.classList.remove('is-invalid')
-        campo.classList.add('is-valid')
-
-        validarSenha(campo)
       }
     })
   })
